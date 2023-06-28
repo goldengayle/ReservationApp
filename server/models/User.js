@@ -1,12 +1,9 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
-
 // import schema from Book.js
-const menuSchema = require('..schemas/MenuItems');
+// const menuSchema = require('..schemas/MenuItems');
 
-const customerSchema = new Schema(
+const userSchema = new Schema(
   {
-    customerName: {
+    userName: {
       type: String,
       required: true,
       unique: true,
@@ -48,9 +45,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
-});
+// userSchema.virtual('bookCount').get(function () {
+//   return this.savedBooks.length;
+// });
 
 const User = model('User', userSchema);
 
