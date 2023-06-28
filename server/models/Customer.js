@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from Book.js
-const menuSchema = require('..schemas/MenuItems');
+
 
 const customerSchema = new Schema(
   {
@@ -33,7 +33,7 @@ const customerSchema = new Schema(
 );
 
 // hash user password
-userSchema.pre('save', async function (next) {
+/*userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -50,8 +50,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
 userSchema.virtual('bookCount').get(function () {
   return this.savedBooks.length;
-});
+});*/
 
-const User = model('User', userSchema);
+const Customer = model('customer', customerSchema);
 
-module.exports = User;
+module.exports = Customer

@@ -1,6 +1,5 @@
 import React from 'react';
-const About =() =>{
+const Header =() =>{
     return <div></div>
 }
-
-export default About
+export default Header
