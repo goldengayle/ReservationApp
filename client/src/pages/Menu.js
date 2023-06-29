@@ -1,6 +1,6 @@
 import React from 'react';
-const About =() =>{
+
+const Menu =() =>{
     return <div></div>
 }
-
-export default About
+export default Menu

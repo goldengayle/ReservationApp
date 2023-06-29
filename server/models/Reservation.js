@@ -1,4 +1,5 @@
-// import schema from Book.js
+ // import schema from Book.js
+ const { Schema, model } = require('mongoose');
 // const menuSchema = require('..schemas/MenuItems');
 
 const reservationSchema = new Schema(

@@ -1,5 +1,7 @@
-// import schema from Book.js
-// const menuSchema = require('..schemas/MenuItems');
+ // import schema from Book.js
+ const { Schema, model } = require('mongoose');
+ const bcrypt = require('bcrypt');
+ //const menuSchema = require('..schemas/MenuItems');
 
 const adminSchema = new Schema(
     {
