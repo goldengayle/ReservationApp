@@ -22,7 +22,7 @@ export default function PortfolioContainer(){
         if (currentPage === 'menu'){
             return <Menu />
         }
-        if (currentPage === 'reservation'){
+        if (currentPage === 'reserve'){
             return <Reserve />
         }
     };
