@@ -1,0 +1,34 @@
+[
+    {
+      "name": "Brian Kernighan",
+      "email": "bkernighan@techfriends.dev",
+      "password": "password01"
+      
+    },
+    {
+        "name": "Jon Doe",
+        "email": "jdoe@techfriends.dev",
+        "password": "password02"
+        
+    },
+    {
+        "name": "Bob Johnson",
+        "email": "bJohnson@techfriends.dev",
+        "password": "password03"
+        
+    },
+    {
+        "name": "Willie Beaman",
+        "email": "wBeaman@techfriends.dev",
+        "password": "password04"
+        
+    },
+    {
+        "name": "Martin Pane",
+        "email": "mPane@techfriends.dev",
+        "password": "password05"
+        
+    }
+
+
+]
