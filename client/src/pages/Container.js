@@ -8,7 +8,7 @@ import Footer from '../components/footer'
 import Navigation from '../components/navigation'
 
 
-export default function PortfolioContainer(){
+export default function Container(){
     const [currentPage, setCurrentPage] = useState('about');
 
     const renderPage = () => {
