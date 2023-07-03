@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { validateEmail } from '../utils/helpers';
-import DatePicker from "react-datepicker";
+import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -9,7 +9,9 @@ export default function Reserve() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [groupsize, setGroupsize] = useState('')
-    const [startDate, setStartDate] = useState(new Date());
+    const [date, setDate] = useState(new Date());
+    //const [selectedTime, setSelectedTime] = useState("5:00 pm");
+    //const availableTimes = ['5:00 pm', '5:30 pm', '6:00 pm', '6:30 pm', '7:00 pm', '7:30 pm', '8:00 pm', '8:30 pm', '9:00 pm', '9:30pm', '10:00 pm'];
     
     //need button to submit and go to payment
 
@@ -18,6 +20,7 @@ export default function Reserve() {
     const inputType = target.name;
     const inputValue = target.value;
 
+   
     if (inputType === 'email'){
         validateEmail(inputValue)
             if (true) {
@@ -32,6 +35,10 @@ export default function Reserve() {
 
      if (inputType ==="groupsize"){
         setGroupsize(inputValue)
+     }
+
+     if (inputType ==="date"){
+        setDate(inputValue)
      }
     }
    
@@ -63,11 +70,29 @@ export default function Reserve() {
                     placeholder ="2"
                 />
                 <br></br>
-                {/* <DatePicker
+                <ReactDatepicker
                     selected={date}
-                    onChange={handleDateChange}
+                    name="date"
+                    onChange={setDate}
                     showTimeSelect
-                    dateFormat="Pp"
+                    maxTime= {new Date().setHours(22, 0, 0, 0)}
+                    minTime= { new Date().setHours(17, 0, 0, 0)}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    
+                /> 
+                {/* <select
+                    value ={selectedTime}
+                    onChange={(e) => setSelectedTime(e.target.value)}
+                    >
+                        {renderTimeOptions({availableTimes})}
+                    </select>
+                 <input
+                type="time"
+                 min="17:00"
+                max="22:00"
+                step="1800"
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.target.value)}
                 /> */}
                 <br></br>
                 <button>Submit</button>
