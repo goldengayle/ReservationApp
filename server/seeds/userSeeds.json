@@ -1,30 +1,35 @@
 [
     {
       "customerName": "Brian Kernighan",
-      "email": "bkernighan@techfriends.dev",
+      "username": "bKernighan",
+      "email": "bKernighan@techfriends.dev",
       "password": "password01"
       
     },
     {
         "customerName": "Jon Doe",
-        "email": "jdoe@techfriends.dev",
+        "username": "jDoe",
+        "email": "jDoe@techfriends.dev",
         "password": "password02"
         
     },
     {
         "customerName": "Bob Johnson",
+        "username": "bJohnson",
         "email": "bJohnson@techfriends.dev",
         "password": "password03"
         
     },
     {
         "customerName": "Willie Beaman",
+        "username": "wBeaman",
         "email": "wBeaman@techfriends.dev",
         "password": "password04"
         
     },
     {
         "customerName": "Martin Pane",
+        "username": "mPane",
         "email": "mPane@techfriends.dev",
         "password": "password05"
         
