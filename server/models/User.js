@@ -6,14 +6,14 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
-    customerName: {
+    username: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
     },
     email: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
@@ -21,15 +21,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
+    reservation:[
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Reservation',
+      },
+    ],
     // set savedBooks to be an array of data that adheres to the bookSchema
     // savedItems: [menuSchema],
   },
   // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-    },
-  }
+  // {
+  //   toJSON: {
+  //     virtuals: true,
+  //   },
+  // }
 );
 
 // hash user password
@@ -48,8 +55,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
-});
+// userSchema.virtual('bookCount').get(function () {
+//   return this.savedBooks.length;
+// });
 
 const User = model('User', userSchema);
+
+module.exports = User;

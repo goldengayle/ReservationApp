@@ -1,50 +1,60 @@
-const { Customer } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Admin, Reservation } = require('../models');
+const { signToken } = require('../utils/auth');
 
-// const resolvers = {
-//   Query: {
-//     /*menuItems: async () => {
-//       return MenuItems.find().sort({ createdAt: -1 });
-//     },
+const resolvers = {
+    Query: {
+      users: async () => {
+        return User.find({}).populate('reservation');
+      },
+      
+      user: async (parent, { username }) => {
+        return User.findOne({username}).populate('reservation')
+      },
 
-//     menuItem: async (parent, { menuItemId }) => {
-//       return Thought.findOne({ _id: menuItemId });
-//     },*/
+      admin: async () => {
+        return Admin.find({});
+      },
 
-//     customers: async () => {
-//         return Customer.find().sort({createdAt: -1});
-//     },
+      reservations: async () => {
+        return Reservation.find({})
+      },
+      
+      reservation: async(parent, { username }) => {
+        const params = username ? { username }: {};
+        return Reservation.find(params).sort({ createdAt: -1 })
+      }
 
-//     customer: async (parent, { customerId }) => {
-//         return Customer.findOne({ _id: customerId });
-//       },
-//   },}
+    },
 
-//   // Mutation: {
-//   //   /*addMenuItem: async (parent, { thoughtText, thoughtAuthor }) => {
-//   //     return Thought.create({ thoughtText, thoughtAuthor });*/
-//   //   },
-//   //   addComment: async (parent, { thoughtId, commentText }) => {
-//   //     return Thought.findOneAndUpdate(
-//   //       { _id: thoughtId },
-//   //       {
-//   //         $addToSet: { comments: { commentText } },
-//   //       },
-//   //       {
-//   //         new: true,
-//   //         runValidators: true,
-//   //       }
-//   //     );
-//   //   },
-//   //   removeThought: async (parent, { thoughtId }) => {
-//   //     return Thought.findOneAndDelete({ _id: thoughtId });
-//   //   },
-//   //   removeComment: async (parent, { thoughtId, commentId }) => {
-//   //     return Thought.findOneAndUpdate(
-//   //       { _id: thoughtId },
-//   //       { $pull: { comments: { _id: commentId } } },
-//   //       { new: true }
-//   //     );
-//   //   },
-//   // }
+    Mutation:{
+      addUser: async (parent, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        //const token = signToken(user);
+        //return { token, user };
+        return { user };
+      },
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
+  
+        if (!user) {
+          throw new AuthenticationError('No user found with this email address');
+        }
+  
+        const correctPw = await user.isCorrectPassword(password);
+  
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+  
+        const token = signToken(user);
+  
+        return { token, user };
+      },
+    }
 
-// module.exports = resolvers;
+}
+
+module.exports = resolvers;
+
+
