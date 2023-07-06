@@ -3,5 +3,11 @@
       "adminName": "Jane Rinheart",
       "email": "jrinheart@saltYourFood.com",
       "password": "password01"
+    },
+
+    {
+      "adminName": "Billish Rinheart",
+      "email": "bilheart@saltYourFood.com",
+      "password": "password02"
     }
 ]
