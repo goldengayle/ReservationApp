@@ -20,8 +20,8 @@ const resolvers = {
         return Reservation.find({})
       },
       
-      reservation: async(parent, { username }) => {
-        const params = username ? { username }: {};
+      reservation: async(parent, { usernameR }) => {
+        const params = usernameR ? { usernameR }: {};
         return Reservation.find(params).sort({ createdAt: -1 })
       }
 
@@ -33,6 +33,12 @@ const resolvers = {
         //const token = signToken(user);
         //return { token, user };
         return { user };
+      },
+      addReservation: async (parent, { usernameR, email, groupSize, reservationTime, comments }) => {
+        const reservation = await Reservation.create({ usernameR, email, groupSize, reservationTime, comments});
+        //const token = signToken(user);
+        //return { token, user };
+        return { reservation };
       },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
