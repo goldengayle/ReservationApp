@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { LOGIN_USER } from '../utils/mutation';
+import { LOGIN_USER } from '../utils/mutations';
 
 const LoginCustomer = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -26,7 +26,11 @@ const LoginCustomer = () => {
     }
 
     try {
-      const { data } = await loginUser({
+
+      const {data} = await loginUser({
+
+      
+
       variables: { ...userFormData },
       });
 

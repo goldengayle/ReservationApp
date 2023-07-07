@@ -3,6 +3,7 @@ import About from "./about";
 import Login from "./login";
 import Menu from "./Menu";
 import Reserve from "./reserve";
+import Admin from "./admin";
 import Navigation from "../components/navigation";
 
 export default function Container() {
@@ -20,6 +21,9 @@ export default function Container() {
     }
     if (currentPage === "reserve") {
       return <Reserve />;
+    }
+    if(currentPage === "admin"){
+      return <Admin />
     }
   };
 
