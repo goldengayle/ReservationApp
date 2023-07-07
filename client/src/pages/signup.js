@@ -1,5 +1,5 @@
 import React from "react";
-const Login = () => {
+const Signup = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <div>
       <main class="container mt-5">
-        <h1 class="mb-4">Login</h1>
+        <h1 class="mb-4">Signup</h1>
         <form class="login-form" onSubmit={handleFormSubmit}>
           <div class="mb-3">
             <label for="username" class="form-label">
@@ -48,7 +48,7 @@ const Login = () => {
             class="btn text-dark"
             style={{ backgroundColor: "#e6ccb3" }}
           >
-            Log In
+            Signup
           </button>
         </form>
       </main>
@@ -56,4 +56,4 @@ const Login = () => {
   );
 };
   
-export default Login;
+export default Signup;
