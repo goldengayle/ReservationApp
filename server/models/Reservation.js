@@ -1,18 +1,19 @@
  // import schema from Book.js
  const { Schema, model } = require('mongoose');
+ const dateFormat = require('../utils/dateFormat');
 // const menuSchema = require('..schemas/MenuItems');
 
 const reservationSchema = new Schema(
     {
-      reservationName: {
+        usernameR: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         dateAdded: new Date()
       },
       email: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         match: [/.+@.+\..+/, 'Must use a valid email address'],
       },
@@ -25,7 +26,12 @@ const reservationSchema = new Schema(
         type: String,
         required: false,
         unique: false
-      }
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
 
   
       // set savedBooks to be an array of data that adheres to the bookSchema

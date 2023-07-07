@@ -5,10 +5,11 @@ const typeDefs = gql`
 
   type User {
     _id: ID
-    customerName: String
+    username: String
     email: String
     createdAt: String
     password: String
+    reservation: [Reservation]
   }
 
   type Admin {
@@ -20,40 +21,30 @@ const typeDefs = gql`
 
   type Reservation {
   _id: ID
-  reservationName: String
+  username: String
   email: String
-  groupSize: String
+  groupSize: Int
   comments: String
 
  }
 
-  #type Comment {
-    #_id: ID
-    #commentText: String
-   #createdAt: String
-  # }
-
-  # type Query {
-   # thoughts: [Thought]!
-  # thought(thoughtId: ID!): Thought
-  #}
-
-  #type Mutation {
-   # addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-   # addComment(thoughtId: ID!, commentText: String!): Thought
-   # removeThought(thoughtId: ID!): Thought
-   # removeComment(thoughtId: ID!, commentId: ID!): Thought
-  #}
+ type Auth {
+    token: ID!
+    user: User
+ }
 
   type Query {
-    user: [User]
+    users: [User]
+    user(username: String!): User
     admin: [Admin]
-    reservation: [Reservation]
+    reservations: [Reservation]
+    reservation(reservationId: ID!):Reservation
     me: User
   }
 
   type Mutation {
-    addUser(customerName: String!, email: String!, password: String!):User
+    addUser(username: String!, email: String!, password: String!):User
+    login(email: String!, password: String!): Auth
   } 
 `;
 

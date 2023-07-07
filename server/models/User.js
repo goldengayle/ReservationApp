@@ -6,14 +6,14 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
-    customerName: {
+    username: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
     },
     email: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
@@ -21,15 +21,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
+    reservation:[
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Reservation',
+      },
+    ],
     // set savedBooks to be an array of data that adheres to the bookSchema
     // savedItems: [menuSchema],
   },
   // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-    },
-  }
+  // {
+  //   toJSON: {
+  //     virtuals: true,
+  //   },
+  // }
 );
 
 // hash user password
