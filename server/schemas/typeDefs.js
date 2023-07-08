@@ -44,8 +44,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!):User
-    addReservation(usernameR: String!, email: String, groupSize:Int!, reservationTime: String!, comments: String ): Reservation
+    addUser(username: String!, email: String!, password: String!): Auth
+    addReservation(usernameR: String!, email: String, groupSize:Int!, reservationTime: String!, comments: String ): Auth
     login(email: String!, password: String!): Auth
   } 
 `;
