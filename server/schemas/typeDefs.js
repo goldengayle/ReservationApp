@@ -2,7 +2,15 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+input ReservationInput {
+  _id: ID
+  usernameR: String
+  email: String
+  groupSize: Int
+  reservationTime: String
+  comments: String
 
+}
   type User {
     _id: ID
     username: String
@@ -45,7 +53,8 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addReservation(usernameR: String!, email: String, groupSize:Int!, reservationTime: String!, comments: String ): Auth
+    addReservation(usernameR: String!, email: String!, groupSize:Int!, reservationTime: String!, comments: String ): Reservation
+    addReservationToUser(input: ReservationInput): User
     login(email: String!, password: String!): Auth
   } 
 `;

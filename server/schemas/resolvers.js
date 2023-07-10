@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Admin, Reservation } = require('../models');
 const { signToken } = require('../utils/auth');
+// const { DELETE_RESERVATION } = require('../../client/src/utils/mutations');
 
 const resolvers = {
     Query: {
@@ -8,11 +9,11 @@ const resolvers = {
         return User.find({}).populate('reservation');
       },
       
-      me: async(parent, context) =>{
+      me: async(parent, args, context) =>{
         if (context.user){
           return User.findOne({_id: context.user._id})
         }
-        //throw new AuthenticationError('You need to be logged in!')
+        // throw new AuthenticationError('You need to be logged in!')
       },
       user: async (parent, { username }) => {
         return User.findOne({username}).populate('reservation')
@@ -42,12 +43,34 @@ const resolvers = {
           
         }
       ,
-      addReservation: async (parent, { usernameR, email, groupSize, reservationTime, comments }) => {
-        const reservation = await Reservation.create({ usernameR, email, groupSize, reservationTime, comments});
-        const token = signToken(user);
-        return { token, reservation };
+
+      
+       addReservation: async (parent, { usernameR, email, groupSize, reservationTime, comments }) => {
+      const reservation = await Reservation.create({ usernameR, email, groupSize, reservationTime, comments});
         
-      },
+      //   // const token = signToken(user);
+      //   // return { token, reservation };
+       return reservation
+       },
+
+       addReservationToUser: async(parent, input , context) => {
+        console.log(context.user)
+        if (context.user){
+          const updatedUser = await User.findOneAndUpdate(
+            {_id:context.user._id},
+            {
+              $push : {reservation: input}
+            },
+            {
+              new: true,
+              runValidators:true
+            }
+          );
+          return updatedUser
+        }
+
+       },
+      
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
   
