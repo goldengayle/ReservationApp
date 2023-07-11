@@ -16,6 +16,7 @@ input ReservationInput {
     username: String
     email: String
     createdAt: String
+    password: String
     reservations: [Reservation]
   }
 
@@ -53,7 +54,7 @@ input ReservationInput {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     addReservation(usernameR: String!, email: String!, groupSize:String!, reservationTime: String!, comments: String ): Reservation
-    addReservationToUser(input: ReservationInput): User
+    addReservationToUser(_id:ID!): User
     login(email: String!, password: String!): Auth
   } 
 `;

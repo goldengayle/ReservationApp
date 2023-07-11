@@ -4,6 +4,7 @@ import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation } from "@apollo/client"
 import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
+// import {QUERY_ME} from '../utils/queries'
 
 import Auth from '../utils/auth'
 
@@ -59,7 +60,16 @@ export default function Reserve() {
     
 
     const [addReservation]= useMutation(ADD_RESERVATION)
-    const [addToUser] = useMutation(ADD_RESTOUSER)
+    const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
+    // const {me} = useQuery(QUERY_ME)
+    //  console.log(me.username)
+
+    const addRes = (dataRes)=> {
+        const {userRes} = addReservationToUser({
+                    variables: {_id:dataRes}
+                 })
+    }
+
 
     const handleInputChange= (event) => {
         const {name, value} = event.target;
@@ -80,23 +90,38 @@ export default function Reserve() {
             });
            
              
-             console.log (data.addReservation)
+             console.log ("add reservation data", data.addReservation)
 
-             const dataRes = data.addReservation 
+             const dataRes = data.addReservation._id
+             console.log("reservation ID", dataRes)
+             addRes(dataRes)
             
             
 
-            const {userRes} = await addToUser({
-               variables: {...dataRes}
-             })
+            // const {userRes} = await addReservationToUser({
+            //    variables: { _id : dataRes }
+            //  })
             // console.log(userRes)
             // Auth.login(data.addReservation.token);
         }catch(e){
             console.log(e)
-        }
+        } 
+
+        
+        // try{
+        //     console.log("here it is",data.reservation._id)
+        //     const {userRes} = await addReservationToUser({
+        //         variables: {_id:data.reservation._id}
+        //     })
+
+        // }catch(e){
+        //     console.log(e)
+        // }
+        
+           
         }
 
-    
+        
    
     return (
         <div>

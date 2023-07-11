@@ -7,7 +7,7 @@ const resolvers = {
   Query:{
       
       me: async (parent, args, context) => {
-          console.log("dumb shit3")
+          
           console.log(context.user._id)
           if (context.user) {
             return User.findOne({ _id: context.user._id });
@@ -54,18 +54,20 @@ const resolvers = {
       //   // return { token, reservation };
       console.log (reservation._id)
        return reservation
+       const resId = reservation.id
        },
 
-       addReservationToUser: async(parent,{ input } , context) => {
-        console.log(input._id)
+       
+
+       addReservationToUser: async(parent, resId , context) => {
+        console.log("res id", resId)
         console.log("context below")
         console.log(context.user._id)
-        console.log(input)
         if (context.user){
           const updatedUser = await User.findOneAndUpdate(
             {_id:context.user._id},
             {
-              $push : {reservations: input}
+              $addToSet : {reservations: resId}
             },
             {
               new: true,

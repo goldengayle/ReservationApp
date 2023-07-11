@@ -75,8 +75,9 @@ mutation addReservation($usernameR: String!, $email: String!, $groupSize: String
 }`
 
 export const ADD_RESTOUSER = gql`
-mutation addrestouser($email: String!, $groupSize: String!, $reservationTime: String!) {
-  addReservationToUser(input: $input) {
+mutation addReservationToUser($_id: ID!) {
+  addReservationToUser(_id: $_id) {
+    username
     reservations {
       reservationTime
       groupSize
