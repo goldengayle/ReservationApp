@@ -127,22 +127,26 @@ export default function Reserve() {
         <div>
             <h3> Please let us know when you would like to reserve a table</h3>
             < form align= "center" className ="form" >
+                <label>Reservation Name</label>
                 <input 
+
                     value ={reservationForm.usernameR}
                     name= "usernameR"
                     onChange ={handleInputChange}
                     type ="text"
-                    placeholder = "name"
+                    placeholder = "Reservation Name"
                 />
                 <br></br>
+                <label>Phone Number</label>
                 <input  
-                    value ={reservationForm.email}
-                    name="email"
+                    value ={reservationForm.phoneNumber}
+                    name="phoneNumber"
                     onChange ={handleInputChange}
-                    type = "email"
-                    placeholder = "email"
+                    type = "phoneNumber"
+                    placeholder = "Phone Number"
                 />
                 <br></br>
+                <label>Group Size</label>
                 <input  
                     value ={reservationForm.groupSize}
                     name = "groupSize"
@@ -162,12 +166,22 @@ export default function Reserve() {
                     
                 />  */}
                 <br></br>
+                <label>Reservation Time</label>
                 <input  
                     value ={reservationForm.reservationTime}
                     name = "reservationTime"
                     onChange = {handleInputChange}
                     type ="text"
-                    placeholder ="2"
+                    placeholder ="Please enter date and time"
+                />
+                <br></br>
+                <label>Comments</label>
+                <input  
+                    value ={reservationForm.comments}
+                    name = "comments"
+                    onChange = {handleInputChange}
+                    type ="text"
+                    placeholder ="Let us know if there are any special requests"
                 />
                 {/* <select
                     value ={selectedTime}

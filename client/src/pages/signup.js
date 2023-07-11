@@ -1,6 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations"
 const Signup = () => {
-  const handleFormSubmit = (event) => {
+  const [signUpForm, setSignUpForm] = useState({
+    email:'',
+    password:'',
+    
+})
+  const [addUser] = useMutation(ADD_USER)
+  const handleInputChange= (event) => {
+    const {name, value} = event.target;
+    setSignUpForm({
+        ...signUpForm,
+        [name]:value,
+    })}
+  const handleFormSubmit = async(event) => {
     event.preventDefault();
 
     // Get the values from the form inputs
@@ -14,7 +28,25 @@ const Signup = () => {
     // Reset the form inputs
     document.getElementById("email-login").value = "";
     document.getElementById("password-login").value = "";
+
+    
+
+    try{
+      console.log(signUpForm)
+      const {data} = await addUser({
+        variables: {...signUpForm}
+      })
+      console.log("signup info", data)
+
+    }catch(e){
+      console.log(e)
+
+    }
+
+
   };
+
+
   
   return (
     <div>
@@ -22,7 +54,7 @@ const Signup = () => {
         <h1 class="mb-4">Signup</h1>
         <form class="login-form" onSubmit={handleFormSubmit}>
           <div class="mb-3">
-            <label for="username" class="form-label">
+            <label for="email" class="form-label">
               Email
             </label>
             <input
@@ -30,6 +62,8 @@ const Signup = () => {
               class="form-control"
               id="email-login"
               placeholder="Email"
+              name="email"
+              onChange ={handleInputChange}
             />
           </div>
           <div class="mb-3">
@@ -41,6 +75,8 @@ const Signup = () => {
               class="form-control"
               id="password-login"
               placeholder="Password"
+              name="password"
+              onChange ={handleInputChange}
             />
           </div>
           <button

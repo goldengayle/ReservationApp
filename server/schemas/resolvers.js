@@ -14,8 +14,8 @@ const resolvers = {
           }
           throw new AuthenticationError('You need to be logged in!');
         },
-      user: async (parent, { username }) => {
-        return User.findOne({username}).populate('reservations')
+      user: async (parent, { email }) => {
+        return User.findOne({email}).populate('reservations')
       },
       users: async () => {
         return User.find({}).populate('reservations');
@@ -37,8 +37,8 @@ const resolvers = {
     },
 
     Mutation:{
-      addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password });
+      addUser: async (parent, { email, password }) => {
+        const user = await User.create({ email, password });
         const token = signToken(user);
         return { token, user };
         
@@ -47,8 +47,8 @@ const resolvers = {
       ,
 
       
-       addReservation: async (parent, { usernameR, email, groupSize, reservationTime, comments }) => {
-      const reservation = await Reservation.create({ usernameR, email, groupSize, reservationTime, comments});
+       addReservation: async (parent, { usernameR, phoneNumber, groupSize, reservationTime, comments }) => {
+      const reservation = await Reservation.create({ usernameR, phoneNumber, groupSize, reservationTime, comments});
         
       //   // const token = signToken(user);
       //   // return { token, reservation };

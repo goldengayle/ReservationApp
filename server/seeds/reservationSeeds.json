@@ -1,14 +1,14 @@
 [
     {
       "usernameR": "bKernighan",
-      "email": "bKernighan@techfriends.dev",
+      "phoneNumber": "770-423-2222",
       "groupSize": 7,
       "comments": "Please have bread, with butter and lemon water on table when we are seated",
       "reservationTime": "Friday 5pm"
     },
     {
       "usernameR": "jDoe",
-      "email": "jDoe@techfriends.dev",
+      "phoneNumber": "770-777-8212",
       "groupSize": 3,
       "comments": "Please have lemon water on table when we are seated",
       "reservationTime": "Saturday 10pm"
@@ -16,7 +16,7 @@
 
     {
       "usernameR": "bJohnson",
-      "email": "bJohnson@techfriends.dev",
+      "phoneNumber": "678-423-3333",
       "groupSize": 2,
       "comments": "No comment",
       "reservationTime": "Saturday 10pm"
@@ -24,14 +24,14 @@
     },
     {
       "usernameR": "wBeaman",
-      "email": "wBeaman@techfriends.dev",
+      "phoneNumber": "478-299-8234",
       "groupSize": 4,
       "comments": "Need bread and butter on  table when we are seated",
       "reservationTime": "Sunday 4pm"
     },
     {
       "usernameR": "mPane",
-      "email": "mPane@techfriends.dev",
+      "phoneNumber": "678-999-9090",
       "groupSize": 9,
       "comments": "No comment",
       "reservationTime": "Saturday 7pm"
