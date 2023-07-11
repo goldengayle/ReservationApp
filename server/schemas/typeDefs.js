@@ -2,14 +2,21 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+input ReservationInput {
+  _id: ID
+  usernameR: String!
+  phoneNumber: String!
+  groupSize: String!
+  reservationTime: String!
+  comments: String
 
+}
   type User {
     _id: ID
-    username: String
     email: String
     createdAt: String
     password: String
-    reservation: [Reservation]
+    reservations: [Reservation]
   }
 
   type Admin {
@@ -21,9 +28,10 @@ const typeDefs = gql`
 
   type Reservation {
   _id: ID
-  username: String
-  email: String
-  groupSize: Int
+  usernameR: String!
+  phoneNumber: String!
+  groupSize: String!
+  reservationTime: String!
   comments: String
 
  }
@@ -35,15 +43,17 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(email: String!): User
     admin: [Admin]
     reservations: [Reservation]
-    reservation(reservationId: ID!):Reservation
+    reservation(_id: ID!):Reservation
     me: User
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!):User
+    addUser( email: String!, password: String!): Auth
+    addReservation(usernameR: String!, phoneNumber: String!, groupSize:String!, reservationTime: String!, comments: String ): Reservation
+    addReservationToUser(_id:ID!): User
     login(email: String!, password: String!): Auth
   } 
 `;

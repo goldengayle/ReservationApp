@@ -39,7 +39,7 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-      username: '',
+      
       email: '',
       password: '',
     });
