@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useMutation } from "@apollo/client"
+import { useMutation, useQuery } from "@apollo/client"
 import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
-// import {QUERY_ME} from '../utils/queries'
+import {QUERY_ME} from '../utils/queries'
 
 import Auth from '../utils/auth'
 
@@ -61,8 +61,8 @@ export default function Reserve() {
     const eventTarget = useRef()
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
-    // const {me} = useQuery(QUERY_ME)
-    //  console.log(me.username)
+    const {me} = useQuery(QUERY_ME)
+     console.log(me.username)
 
     const addRes = (dataRes)=> {
         const {userRes} = addReservationToUser({

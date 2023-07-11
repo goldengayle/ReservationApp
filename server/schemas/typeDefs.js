@@ -46,7 +46,7 @@ input ReservationInput {
     user(email: String!): User
     admin: [Admin]
     reservations: [Reservation]
-    reservation(reservationId: ID!):Reservation
+    reservation(_id: ID!):Reservation
     me: User
   }
 
