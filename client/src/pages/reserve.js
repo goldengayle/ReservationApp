@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation } from "@apollo/client"
 import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
+// import {QUERY_ME} from '../utils/queries'
 
 import Auth from '../utils/auth'
 
@@ -50,18 +51,28 @@ export default function Reserve() {
 
     const [reservationForm, setReservationForm] = useState({
         usernameR:'',
-        email:'',
+        phoneNumber:'',
         groupSize:'',
         reservationTime:'',
         comments:''
     })
 
     
-
+    const eventTarget = useRef()
     const [addReservation]= useMutation(ADD_RESERVATION)
-    const [addToUser] = useMutation(ADD_RESTOUSER)
+    const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
+    // const {me} = useQuery(QUERY_ME)
+    //  console.log(me.username)
+
+    const addRes = (dataRes)=> {
+        const {userRes} = addReservationToUser({
+                    variables: {_id:dataRes}
+                 })
+    }
+
 
     const handleInputChange= (event) => {
+        
         const {name, value} = event.target;
         setReservationForm({
             ...reservationForm,
@@ -80,44 +91,63 @@ export default function Reserve() {
             });
            
              
-             console.log (data.addReservation)
+             console.log ("add reservation data", data.addReservation)
 
-             const dataRes = data.addReservation 
+             const dataRes = data.addReservation._id
+             console.log("reservation ID", dataRes)
+             addRes(dataRes)
             
             
 
-            const {userRes} = await addToUser({
-               variables: {...dataRes}
-             })
+            // const {userRes} = await addReservationToUser({
+            //    variables: { _id : dataRes }
+            //  })
             // console.log(userRes)
             // Auth.login(data.addReservation.token);
         }catch(e){
             console.log(e)
-        }
+        } 
+
+        
+        // try{
+        //     console.log("here it is",data.reservation._id)
+        //     const {userRes} = await addReservationToUser({
+        //         variables: {_id:data.reservation._id}
+        //     })
+
+        // }catch(e){
+        //     console.log(e)
+        // }
+        
+           
         }
 
-    
+        
    
     return (
         <div>
             <h3> Please let us know when you would like to reserve a table</h3>
             < form align= "center" className ="form" >
+                <label>Reservation Name</label>
                 <input 
+
                     value ={reservationForm.usernameR}
                     name= "usernameR"
                     onChange ={handleInputChange}
                     type ="text"
-                    placeholder = "name"
+                    placeholder = "Reservation Name"
                 />
                 <br></br>
+                <label>Phone Number</label>
                 <input  
-                    value ={reservationForm.email}
-                    name="email"
+                    value ={reservationForm.phoneNumber}
+                    name="phoneNumber"
                     onChange ={handleInputChange}
-                    type = "email"
-                    placeholder = "email"
+                    type = "phoneNumber"
+                    placeholder = "Phone Number"
                 />
                 <br></br>
+                <label>Group Size</label>
                 <input  
                     value ={reservationForm.groupSize}
                     name = "groupSize"
@@ -127,9 +157,9 @@ export default function Reserve() {
                 />
                 <br></br>
                 {/* <ReactDatepicker
-                    selected={date}
-                    name="date"
-                    onChange={setDate}
+                    selected={reservationForm.reservationTime}
+                    name="reservationTime"
+                    onChange={handleInputChange}
                     showTimeSelect
                     maxTime= {new Date().setHours(22, 0, 0, 0)}
                     minTime= { new Date().setHours(17, 0, 0, 0)}
@@ -137,12 +167,34 @@ export default function Reserve() {
                     
                 />  */}
                 <br></br>
-                <input  
+                <label>Reservation Time</label>
+                <ReactDatepicker
+                    selected={reservationForm.reservationTime}
+                    name="reservationTime"
+                    // onChange={handleInputChange}
+                    showTimeSelect
+                    maxTime= {new Date().setHours(22, 0, 0, 0)}
+                    minTime= { new Date().setHours(17, 0, 0, 0)}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    value={reservationForm.reservationTime.toString()}
+                    onChange={date => handleInputChange({ target: { value: date, name: 'reservationTime' } })}
+                    
+                />
+                {/* <input  
                     value ={reservationForm.reservationTime}
                     name = "reservationTime"
                     onChange = {handleInputChange}
                     type ="text"
-                    placeholder ="2"
+                    placeholder ="Please enter date and time"
+                /> */}
+                <br></br>
+                <label>Comments</label>
+                <input  
+                    value ={reservationForm.comments}
+                    name = "comments"
+                    onChange = {handleInputChange}
+                    type ="text"
+                    placeholder ="Let us know if there are any special requests"
                 />
                 {/* <select
                     value ={selectedTime}

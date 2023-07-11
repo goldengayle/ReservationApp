@@ -6,11 +6,11 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: false,
-      unique: true,
-    },
+  //   // username: {
+  //   //   type: String,
+  //   //   required: false,
+  //   //   unique: true,
+  //   },
     email: {
       type: String,
       required: false,
@@ -30,13 +30,13 @@ const userSchema = new Schema(
     ],
     // set savedBooks to be an array of data that adheres to the bookSchema
     // savedItems: [menuSchema],
-  },
+  
   // set this to use virtual below
   // {
   //   toJSON: {
   //     virtuals: true,
   //   },
-  // }
+   }
 );
 
 // hash user password

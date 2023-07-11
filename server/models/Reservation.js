@@ -11,11 +11,11 @@ const reservationSchema = new Schema(
         unique: false,
         dateAdded: new Date()
       },
-      email: {
+      phoneNumber: {
         type: String,
         required: false,
         unique: false,
-        match: [/.+@.+\..+/, 'Must use a valid email address'],
+        // match: [/.+@.+\..+/, 'Must use a valid email address'],
       },
       groupSize:{
         type: String,

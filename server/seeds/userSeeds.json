@@ -1,35 +1,35 @@
 [
     {
      
-      "username": "bKernighan",
+   
       "email": "bKernighan@techfriends.dev",
       "password": "password01"
       
     },
     {
        
-        "username": "jDoe",
+        
         "email": "jDoe@techfriends.dev",
         "password": "password02"
         
     },
     {
      
-        "username": "bJohnson",
+        
         "email": "bJohnson@techfriends.dev",
         "password": "password03"
         
     },
     {
        
-        "username": "wBeaman",
+        
         "email": "wBeaman@techfriends.dev",
         "password": "password04"
         
     },
     {
     
-        "username": "mPane",
+        
         "email": "mPane@techfriends.dev",
         "password": "password05"
         
