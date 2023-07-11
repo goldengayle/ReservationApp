@@ -6,6 +6,7 @@ import Reserve from "./reserve";
 import Admin from "./admin";
 import Navigation from "../components/navigation";
 import Signup from "./signup";
+import Carousel from "../components/carousel";
 
 export default function Container() {
   const [currentPage, setCurrentPage] = useState("about");
@@ -45,6 +46,8 @@ export default function Container() {
           </div>
         </nav>
       </header>
+
+      <Carousel />
 
       <main className="container">{renderPage()}</main>
 
