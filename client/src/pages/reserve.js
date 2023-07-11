@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -58,7 +58,7 @@ export default function Reserve() {
     })
 
     
-
+    const eventTarget = useRef()
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
     // const {me} = useQuery(QUERY_ME)
@@ -72,6 +72,7 @@ export default function Reserve() {
 
 
     const handleInputChange= (event) => {
+        
         const {name, value} = event.target;
         setReservationForm({
             ...reservationForm,
@@ -156,9 +157,9 @@ export default function Reserve() {
                 />
                 <br></br>
                 {/* <ReactDatepicker
-                    selected={date}
-                    name="date"
-                    onChange={setDate}
+                    selected={reservationForm.reservationTime}
+                    name="reservationTime"
+                    onChange={handleInputChange}
                     showTimeSelect
                     maxTime= {new Date().setHours(22, 0, 0, 0)}
                     minTime= { new Date().setHours(17, 0, 0, 0)}
@@ -167,13 +168,25 @@ export default function Reserve() {
                 />  */}
                 <br></br>
                 <label>Reservation Time</label>
-                <input  
+                <ReactDatepicker
+                    selected={reservationForm.reservationTime}
+                    name="reservationTime"
+                    // onChange={handleInputChange}
+                    showTimeSelect
+                    maxTime= {new Date().setHours(22, 0, 0, 0)}
+                    minTime= { new Date().setHours(17, 0, 0, 0)}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    value={reservationForm.reservationTime.toString()}
+                    onChange={date => handleInputChange({ target: { value: date, name: 'reservationTime' } })}
+                    
+                />
+                {/* <input  
                     value ={reservationForm.reservationTime}
                     name = "reservationTime"
                     onChange = {handleInputChange}
                     type ="text"
                     placeholder ="Please enter date and time"
-                />
+                /> */}
                 <br></br>
                 <label>Comments</label>
                 <input  
