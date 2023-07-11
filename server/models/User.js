@@ -22,7 +22,7 @@ const userSchema = new Schema(
       required: true,
     },
 
-    reservation:[
+    reservations:[
       {
         type: Schema.Types.ObjectId,
         ref: 'Reservation',

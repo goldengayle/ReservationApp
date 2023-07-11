@@ -4,19 +4,21 @@ const { signToken } = require('../utils/auth');
 // const { DELETE_RESERVATION } = require('../../client/src/utils/mutations');
 
 const resolvers = {
-    Query: {
-      users: async () => {
-        return User.find({}).populate('reservation');
-      },
+  Query:{
       
-      me: async(parent, args, context) =>{
-        if (context.user){
-          return User.findOne({_id: context.user._id})
-        }
-        // throw new AuthenticationError('You need to be logged in!')
-      },
+      me: async (parent, args, context) => {
+          console.log("dumb shit3")
+          console.log(context.user._id)
+          if (context.user) {
+            return User.findOne({ _id: context.user._id });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
       user: async (parent, { username }) => {
-        return User.findOne({username}).populate('reservation')
+        return User.findOne({username}).populate('reservations')
+      },
+      users: async () => {
+        return User.find({}).populate('reservations');
       },
 
       admin: async () => {
@@ -50,44 +52,47 @@ const resolvers = {
         
       //   // const token = signToken(user);
       //   // return { token, reservation };
+      console.log (reservation._id)
        return reservation
        },
 
-       addReservationToUser: async(parent, input , context) => {
-        console.log(context.user)
+       addReservationToUser: async(parent,{ input } , context) => {
+        console.log(input._id)
+        console.log("context below")
+        console.log(context.user._id)
+        console.log(input)
         if (context.user){
           const updatedUser = await User.findOneAndUpdate(
             {_id:context.user._id},
             {
-              $push : {reservation: input}
+              $push : {reservations: input}
             },
             {
               new: true,
               runValidators:true
             }
-          );
+          ).populate('reservations');
           return updatedUser
         }
 
        },
       
-      login: async (parent, { email, password }) => {
-        const user = await User.findOne({ email });
-  
-        if (!user) {
-          throw new AuthenticationError('No user found with this email address');
+      login: async(parent, { email, password}) => {
+        const user = await User.findOne({email});
+
+        if(!user){
+            throw new AuthenticationError(`No user with this email found!`)
         }
-  
+
         const correctPw = await user.isCorrectPassword(password);
-  
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect credentials');
+
+        if (!correctPw){
+            throw new AuthenticationError(`Incorrect password`);
         }
-  
-        const token = signToken(user);
-  
-        return { token, user };
-      },
+
+        const token =signToken(user);
+        return { token, user};
+    },
     }
 
 }

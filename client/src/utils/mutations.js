@@ -63,15 +63,23 @@ mutation deleteReservation($_id:ID){
 }`
 
 export const ADD_RESERVATION = gql`
-mutation addReservation($usernameR: String!, $email: String!, $groupSize: Int!, $reservationTime: String!, $comments: String) {
-  addReservation(usernameR: $usernameR, email:$email groupSize: $groupSize, reservationTime: $reservationTime, comments: $comments) {
-  token
-  reservation{
-    usernameR
-    email
-    reservationTime
-    groupSize
+mutation addReservation($usernameR: String!, $email: String!, $groupSize: String!, $reservationTime: String!) {
+  addReservation(usernameR: $usernameR, email: $email, groupSize: $groupSize, reservationTime: $reservationTime) {
+    _id
     comments
+    email
+    groupSize
+    reservationTime
+    usernameR
   }
-}
+}`
+
+export const ADD_RESTOUSER = gql`
+mutation addrestouser($email: String!, $groupSize: String!, $reservationTime: String!) {
+  addReservationToUser(input: $input) {
+    reservations {
+      reservationTime
+      groupSize
+    }
+  }
 }`

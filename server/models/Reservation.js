@@ -18,7 +18,7 @@ const reservationSchema = new Schema(
         match: [/.+@.+\..+/, 'Must use a valid email address'],
       },
       groupSize:{
-        type: Number,
+        type: String,
         required: false,
         unique: false
       },

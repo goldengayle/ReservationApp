@@ -3,7 +3,8 @@ import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation } from "@apollo/client"
-import { ADD_RESERVATION } from '../utils/mutations';
+import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
+
 import Auth from '../utils/auth'
 
 
@@ -55,7 +56,10 @@ export default function Reserve() {
         comments:''
     })
 
-    const [addReservation, {error, data}]= useMutation(ADD_RESERVATION)
+    
+
+    const [addReservation]= useMutation(ADD_RESERVATION)
+    const [addToUser] = useMutation(ADD_RESTOUSER)
 
     const handleInputChange= (event) => {
         const {name, value} = event.target;
@@ -74,6 +78,18 @@ export default function Reserve() {
             const {data} = await addReservation({
                 variables:{ ...reservationForm}
             });
+           
+             
+             console.log (data.addReservation)
+
+             const dataRes = data.addReservation 
+            
+            
+
+            const {userRes} = await addToUser({
+               variables: {...dataRes}
+             })
+            // console.log(userRes)
             // Auth.login(data.addReservation.token);
         }catch(e){
             console.log(e)
@@ -106,7 +122,7 @@ export default function Reserve() {
                     value ={reservationForm.groupSize}
                     name = "groupSize"
                     onChange = {handleInputChange}
-                    type ="integer"
+                    type ="text"
                     placeholder ="2"
                 />
                 <br></br>

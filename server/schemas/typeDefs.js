@@ -6,7 +6,7 @@ input ReservationInput {
   _id: ID
   usernameR: String
   email: String
-  groupSize: Int
+  groupSize: String
   reservationTime: String
   comments: String
 
@@ -16,8 +16,7 @@ input ReservationInput {
     username: String
     email: String
     createdAt: String
-    password: String
-    reservation: [Reservation]
+    reservations: [Reservation]
   }
 
   type Admin {
@@ -31,7 +30,7 @@ input ReservationInput {
   _id: ID
   usernameR: String
   email: String
-  groupSize: Int
+  groupSize: String
   reservationTime: String
   comments: String
 
@@ -53,7 +52,7 @@ input ReservationInput {
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addReservation(usernameR: String!, email: String!, groupSize:Int!, reservationTime: String!, comments: String ): Reservation
+    addReservation(usernameR: String!, email: String!, groupSize:String!, reservationTime: String!, comments: String ): Reservation
     addReservationToUser(input: ReservationInput): User
     login(email: String!, password: String!): Auth
   } 
