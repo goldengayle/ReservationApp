@@ -10,7 +10,7 @@ const Signup = () => {
     // Store the values in localStorage
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
+    localStorage.setItem("loggedIn", true);
     // Reset the form inputs
     document.getElementById("email-login").value = "";
     document.getElementById("password-login").value = "";

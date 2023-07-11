@@ -2,7 +2,13 @@ import React from 'react';
 import Auth from '../utils/auth';
 
 function Navigation({ currentPage, handlePageChange }) {
-  const isLoggedIn = Auth.loggedIn(); 
+  const isLoggedIn = localStorage.getItem('loggedIn') || false; 
+  const handleLogout = () => {
+    // Perform logout actions here (e.g., clear authentication tokens, reset state, etc.)
+    localStorage.removeItem('loggedIn');
+    // Redirect to the login page or any other desired page
+    handlePageChange('login'); // Update 'login' with the appropriate page name
+  };
 
   if (isLoggedIn) {
     return (
@@ -43,10 +49,19 @@ function Navigation({ currentPage, handlePageChange }) {
             Admin Page
           </a>
         </li>
+        <li className="nav-item">
+          <a
+            href="#logout"
+            onClick={handleLogout} // Call the handleLogout function on click
+            className={currentPage === 'logout' ? 'nav-link active' : 'nav-link'}
+          >
+            Logout
+          </a>
+        </li>
       </ul>
     );
   }
-
+  else{
   return (
     <ul className="nav nav-tabs" align="center">
       <li className="nav-item">
@@ -105,6 +120,7 @@ function Navigation({ currentPage, handlePageChange }) {
       </li>
     </ul>
   );
+}
 }
 
 export default Navigation;
