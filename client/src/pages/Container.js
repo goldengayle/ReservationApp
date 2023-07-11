@@ -4,6 +4,9 @@ import Login from "./login";
 import Menu from "./Menu";
 import Reserve from "./reserve";
 import Navigation from "../components/navigation";
+import PayPal from "../components/PaypalButton";
+import CheckOut from "../components/CheckOut"
+
 
 export default function Container() {
   const [currentPage, setCurrentPage] = useState("about");
@@ -20,6 +23,12 @@ export default function Container() {
     }
     if (currentPage === "reserve") {
       return <Reserve />;
+    }
+    if (currentPage === "PayPal") {
+      return <PayPal />;
+    }
+    if (currentPage === "CheckOut") {
+      return <CheckOut />;
     }
   };
 
