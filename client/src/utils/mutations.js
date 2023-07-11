@@ -75,7 +75,7 @@ mutation addReservation($usernameR: String!, $phoneNumber: String!, $groupSize: 
 export const ADD_RESTOUSER = gql`
 mutation addReservationToUser($_id: ID!) {
   addReservationToUser(_id: $_id) {
-    phoneNumber
+    email
     reservations {
       reservationTime
       groupSize

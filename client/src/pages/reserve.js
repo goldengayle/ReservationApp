@@ -51,7 +51,7 @@ export default function Reserve() {
 
     const [reservationForm, setReservationForm] = useState({
         usernameR:'',
-        email:'',
+        phoneNumber:'',
         groupSize:'',
         reservationTime:'',
         comments:''
