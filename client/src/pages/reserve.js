@@ -58,11 +58,11 @@ export default function Reserve() {
     })
 
     
-    const eventTarget = useRef()
+    
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
     const {me} = useQuery(QUERY_ME)
-     console.log(me.username)
+     
 
     const addRes = (dataRes)=> {
         const {userRes} = addReservationToUser({
