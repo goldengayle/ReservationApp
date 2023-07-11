@@ -13,13 +13,13 @@ const reservationSchema = new Schema(
       },
       email: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
         match: [/.+@.+\..+/, 'Must use a valid email address'],
       },
       groupSize:{
-        type: Number,
-        required: true,
+        type: String,
+        required: false,
         unique: false
       },
       comments:{

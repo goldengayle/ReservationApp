@@ -22,6 +22,15 @@ query user($_id: ID!) {
 }
 `
 
+export const QUERY_ADMIN = gql`
+query admin{
+    admin {
+      _id
+      adminName
+      email
+    }
+  }`
+
 
 
 export const QUERY_RESERVATIONS = gql`
