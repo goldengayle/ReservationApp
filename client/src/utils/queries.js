@@ -27,7 +27,7 @@ query user($_id: ID!) {
 export const QUERY_RESERVATIONS = gql`
 query reservations{
     reservation{
-        username
+        usernameR
         reservationTime
         groupSize
         comments
@@ -43,7 +43,7 @@ query reservations{
 export const QUERY_RESERVATION = gql`
 query reservation($_id: ID!){
     reservation{
-        username
+        usernameR
         reservationTime
         groupSize
         comments

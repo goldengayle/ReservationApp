@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+// import { useQuery } from "@apollo/client"
+// import { QUERY_ME } from '../utils/queries';
 
 
 export default function Reserve() {
+    // const { loading, data} = useQuery(QUERY_ME);
+    //   console.log(data)
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

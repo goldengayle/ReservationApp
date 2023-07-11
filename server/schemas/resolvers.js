@@ -8,6 +8,12 @@ const resolvers = {
         return User.find({}).populate('reservation');
       },
       
+      me: async(parent, context) =>{
+        if (context.user){
+          return User.findOne({_id: context.user._id})
+        }
+        //throw new AuthenticationError('You need to be logged in!')
+      },
       user: async (parent, { username }) => {
         return User.findOne({username}).populate('reservation')
       },
@@ -20,8 +26,8 @@ const resolvers = {
         return Reservation.find({})
       },
       
-      reservation: async(parent, { username }) => {
-        const params = username ? { username }: {};
+      reservation: async(parent, { usernameR }) => {
+        const params = usernameR ? { usernameR }: {};
         return Reservation.find(params).sort({ createdAt: -1 })
       }
 
@@ -30,9 +36,17 @@ const resolvers = {
     Mutation:{
       addUser: async (parent, { username, email, password }) => {
         const user = await User.create({ username, email, password });
-        //const token = signToken(user);
-        //return { token, user };
-        return { user };
+        const token = signToken(user);
+        return { token, user };
+        
+          
+        }
+      ,
+      addReservation: async (parent, { usernameR, email, groupSize, reservationTime, comments }) => {
+        const reservation = await Reservation.create({ usernameR, email, groupSize, reservationTime, comments});
+        const token = signToken(user);
+        return { token, reservation };
+        
       },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });

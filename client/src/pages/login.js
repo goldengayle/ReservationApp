@@ -28,20 +28,24 @@ const Login = () => {
     <div>
       <main className="container mt-5">
         <h1 className="mb-4">Login</h1>
+
         <form className="login-form" onSubmit={handleLogin}>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">
               Email
+
             </label>
             <input
               type="text"
               className="form-control"
+
               id="email-login"
               placeholder="Email"
             />
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
+
               Password
             </label>
             <input
@@ -58,6 +62,7 @@ const Login = () => {
           >
             Log In
           </button>
+
         </form>
       </main>
     </div>
