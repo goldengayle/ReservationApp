@@ -59,13 +59,15 @@ const resolvers = {
 
        
 
-       addReservationToUser: async(parent, resId , context) => {
+       addReservationToUser: async(parent, {useId, resId }, context) => {
         console.log("res id", resId)
-        console.log("context below")
-        console.log(context.user._id)
-        if (context.user){
+    
+        console.log("useId",useId)
+       
+        if (context){
+          
           const updatedUser = await User.findOneAndUpdate(
-            {_id:context.user._id},
+            {_id:useId},
             {
               $addToSet : {reservations: resId}
             },
@@ -91,8 +93,9 @@ const resolvers = {
         if (!correctPw){
             throw new AuthenticationError(`Incorrect password`);
         }
-
+        
         const token =signToken(user);
+        console.log("tokena dn user", token, user)
         return { token, user};
     },
     }
