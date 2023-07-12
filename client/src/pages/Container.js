@@ -7,6 +7,9 @@ import Admin from "./admin";
 import Navigation from "../components/navigation";
 import Signup from "./signup";
 import Carousel from "../components/carousel";
+import PayPal from "../components/PaypalButton";
+import CheckOut from "../components/CheckOut"
+
 
 export default function Container() {
   const [currentPage, setCurrentPage] = useState("about");
@@ -26,6 +29,12 @@ export default function Container() {
     }
     if (currentPage === "reserve") {
       return <Reserve />;
+    }
+    if (currentPage === "PayPal") {
+      return <PayPal />;
+    }
+    if (currentPage === "CheckOut") {
+      return <CheckOut />;
     }
     if(currentPage === "admin"){
       return <Admin />
