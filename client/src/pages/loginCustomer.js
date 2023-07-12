@@ -6,7 +6,7 @@ import { LOGIN_USER } from '../utils/mutations';
 
 const LoginCustomer = (props) => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [loginUser, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -27,7 +27,7 @@ const LoginCustomer = (props) => {
 
     try {
 
-      const {data} = await loginUser({
+      const {data} = await login({
 
       
 
