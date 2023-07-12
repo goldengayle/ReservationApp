@@ -55,7 +55,13 @@ mutation deleteReservation($_id:ID){
     token
     user{
       email
-      reservations
+      reservations {
+        usernameR
+        phoneNumber
+        reservationTime
+        groupSize
+        comments
+      }
     }
   }
 }`
