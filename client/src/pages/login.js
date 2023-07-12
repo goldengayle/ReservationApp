@@ -63,7 +63,7 @@ const Login = () => {
       } else {
         console.log("Login failed. Invalid email or password.");
       }
-      
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }

@@ -3,9 +3,11 @@ import Auth from '../utils/auth';
 
 function Navigation({ currentPage, handlePageChange }) {
   const isLoggedIn = localStorage.getItem('loggedIn') || false; 
+  const isLoggedInAdmin = localStorage.getItem('loggedInAdmin') || false;
   const handleLogout = () => {
     // Perform logout actions here (e.g., clear authentication tokens, reset state, etc.)
     localStorage.removeItem('loggedIn');
+    localStorage.removeItem('loggedInAdmin');
     // Redirect to the login page or any other desired page
     handlePageChange('login'); // Update 'login' with the appropriate page name
   };
@@ -32,6 +34,57 @@ function Navigation({ currentPage, handlePageChange }) {
           </a>
         </li>
         
+        <li className="nav-item">
+          <a
+            href="#menu"
+            onClick={() => handlePageChange('menu')}
+            className={currentPage === 'menu' ? 'nav-link active' : 'nav-link'}
+          >
+            Current Menu
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            href="#reserve"
+            onClick={() => handlePageChange('reserve')}
+            className={currentPage === 'reserve' ? 'nav-link active' : 'nav-link'}
+          >
+            Make a Reservation
+          </a>
+        </li>
+        {/* <li className="nav-item">
+          <a
+            href="#admin"
+            onClick={() => handlePageChange('admin')}
+            className={currentPage === 'admin' ? 'nav-link active' : 'nav-link'}
+          >
+            Admin Page
+          </a>
+        </li> */}
+        <li className="nav-item">
+          <a
+            href="#logout"
+            onClick={handleLogout} // Call the handleLogout function on click
+            className={currentPage === 'logout' ? 'nav-link active' : 'nav-link'}
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    );
+  }
+  else if (isLoggedInAdmin) {
+    return (
+      <ul className="nav nav-tabs" align="center">
+        <li className="nav-item">
+          <a
+            href="#about"
+            onClick={() => handlePageChange('about')}
+            className={currentPage === 'about' ? 'nav-link active' : 'nav-link'}
+          >
+            About
+          </a>
+        </li>
         <li className="nav-item">
           <a
             href="#menu"
