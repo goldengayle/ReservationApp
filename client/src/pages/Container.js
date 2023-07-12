@@ -7,9 +7,15 @@ import Admin from "./admin";
 import Navigation from "../components/navigation";
 import Signup from "./signup";
 import Carousel from "../components/carousel";
+import PayPal from "../components/PaypalButton";
+import CheckOut from "../components/CheckOut"
+import UserProfile from "./profile"
+
 
 export default function Container() {
-  const [currentPage, setCurrentPage] = useState("about");
+  const loggedin = localStorage.getItem("loggedIn")
+  const [currentPage, setCurrentPage] = useState( loggedin ? "profile": "about");
+ 
 
   const renderPage = () => {
     if (currentPage === "about") {
@@ -27,8 +33,17 @@ export default function Container() {
     if (currentPage === "reserve") {
       return <Reserve />;
     }
+    if (currentPage === "PayPal") {
+      return <PayPal />;
+    }
+    if (currentPage === "CheckOut") {
+      return <CheckOut />;
+    }
     if(currentPage === "admin"){
       return <Admin />
+    }
+    if(currentPage ==="profile"){
+      return<UserProfile />
     }
   };
 

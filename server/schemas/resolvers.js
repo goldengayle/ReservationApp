@@ -1,21 +1,27 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Admin, Reservation } = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose');
+
+// Inside your backend route or controller
+
 // const { DELETE_RESERVATION } = require('../../client/src/utils/mutations');
 
 const resolvers = {
   Query:{
       
-      me: async (parent, args, context) => {
+      me: async (parent, args) => {
+        const {userId }= args
+        const convertedUserId = new mongoose.Types.ObjectId(userId);
           
-          console.log(context.user._id)
-          if (context.user) {
-            return User.findOne({ _id: context.user._id });
-          }
-          throw new AuthenticationError('You need to be logged in!');
-        },
+          
+          // if (loggedIn) {
+            return User.findOne({ _id: convertedUserId}).populate('reservations');
+          },
+        //   throw new AuthenticationError('You need to be logged in!');
+        // },
       user: async (parent, { email }) => {
-        return User.findOne({email}).populate('reservations')
+        return User.findOne({email:email}).populate('reservations')
       },
       users: async () => {
         return User.find({}).populate('reservations');
@@ -59,13 +65,15 @@ const resolvers = {
 
        
 
-       addReservationToUser: async(parent, resId , context) => {
+       addReservationToUser: async(parent, {useId, resId }, context) => {
         console.log("res id", resId)
-        console.log("context below")
-        console.log(context.user._id)
-        if (context.user){
+    
+        console.log("useId",useId)
+       
+        if (context){
+          
           const updatedUser = await User.findOneAndUpdate(
-            {_id:context.user._id},
+            {_id:useId},
             {
               $addToSet : {reservations: resId}
             },
@@ -91,8 +99,9 @@ const resolvers = {
         if (!correctPw){
             throw new AuthenticationError(`Incorrect password`);
         }
-
+        
         const token =signToken(user);
+        console.log("tokena dn user", token, user)
         return { token, user};
     },
     }

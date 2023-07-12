@@ -47,13 +47,14 @@ input ReservationInput {
     admin: [Admin]
     reservations: [Reservation]
     reservation(_id: ID!):Reservation
-    me: User
+    me(userId:ID!): User
+    
   }
 
   type Mutation {
     addUser( email: String!, password: String!): Auth
     addReservation(usernameR: String!, phoneNumber: String!, groupSize:String!, reservationTime: String!, comments: String ): Reservation
-    addReservationToUser(_id:ID!): User
+    addReservationToUser(useId:ID!, resId:ID! ): User
     login(email: String!, password: String!): Auth
   } 
 `;

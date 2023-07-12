@@ -26,6 +26,16 @@ function Navigation({ currentPage, handlePageChange }) {
         </li>
         <li className="nav-item">
           <a
+            href="#profile"
+            onClick={() => handlePageChange('profile')}
+            className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}
+          >
+            Profile
+          </a>
+        </li>
+        
+        <li className="nav-item">
+          <a
             href="#menu"
             onClick={() => handlePageChange('menu')}
             className={currentPage === 'menu' ? 'nav-link active' : 'nav-link'}
@@ -111,6 +121,12 @@ function Navigation({ currentPage, handlePageChange }) {
             Logout
           </a>
         </li>
+        <li className="nav-item">
+                <a href ="#PayPal" onClick={() => handlePageChange('PayPal')} className={currentPage === 'PayPal' ? 'nav-link active' : 'nav-link'}>PayPal</a>
+            </li>
+            <li className="nav-item">
+                <a href ="#CheckOut" onClick={() => handlePageChange('CheckOut')} className={currentPage === 'CheckOut' ? 'nav-link active' : 'nav-link'}>CheckOut</a>
+            </li>
       </ul>
     );
   }

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -62,11 +63,13 @@ export default function Reserve() {
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
     const {me} = useQuery(QUERY_ME)
+    const useId = localStorage.getItem("useId");
+    
      
 
-    const addRes = (dataRes)=> {
-        const {userRes} = addReservationToUser({
-                    variables: {_id:dataRes}
+    const addRes = async(useId, resId)=> {
+        const {userRes} = await addReservationToUser({
+                    variables: {useId: useId, resId: resId }
                  })
     }
 
@@ -93,9 +96,13 @@ export default function Reserve() {
              
              console.log ("add reservation data", data.addReservation)
 
-             const dataRes = data.addReservation._id
-             console.log("reservation ID", dataRes)
-             addRes(dataRes)
+             const resId = data.addReservation._id
+             console.log("reservation ID", resId)
+             console.log("user Id", useId)
+             addRes(useId, resId)
+             window.location.reload();
+            
+             
             
             
 
@@ -211,8 +218,9 @@ export default function Reserve() {
                 onChange={(e) => setSelectedTime(e.target.value)}
                 /> */}
                 <br></br>
+             
                 <button onClick={handleFormSubmit}>Submit</button>
-
+               
 
             </form>
     
