@@ -8,18 +8,18 @@ const reservationSchema = new Schema(
         usernameR: {
         type: String,
         required: false,
-        unique: true,
+        unique: false,
         dateAdded: new Date()
       },
-      email: {
+      phoneNumber: {
         type: String,
         required: false,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must use a valid email address'],
+        unique: false,
+        // match: [/.+@.+\..+/, 'Must use a valid email address'],
       },
       groupSize:{
-        type: Number,
-        required: true,
+        type: String,
+        required: false,
         unique: false
       },
       comments:{
@@ -31,6 +31,12 @@ const reservationSchema = new Schema(
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
+      },
+      reservationTime: {
+        type: String
+        // type: Date,
+        // default: Date.now,
+        // get: (timestamp) => dateFormat(timestamp),
       },
 
   

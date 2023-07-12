@@ -1,15 +1,24 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Admin, Reservation } = require('../models');
 const { signToken } = require('../utils/auth');
+// const { DELETE_RESERVATION } = require('../../client/src/utils/mutations');
 
 const resolvers = {
-    Query: {
-      users: async () => {
-        return User.find({}).populate('reservation');
-      },
+  Query:{
       
-      user: async (parent, { username }) => {
-        return User.findOne({username}).populate('reservation')
+      me: async (parent, args, context) => {
+          
+          console.log(context.user._id)
+          if (context.user) {
+            return User.findOne({ _id: context.user._id });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+      user: async (parent, { email }) => {
+        return User.findOne({email}).populate('reservations')
+      },
+      users: async () => {
+        return User.find({}).populate('reservations');
       },
 
       admin: async () => {
@@ -20,37 +29,75 @@ const resolvers = {
         return Reservation.find({})
       },
       
-      reservation: async(parent, { username }) => {
-        const params = username ? { username }: {};
+      reservation: async(parent, { usernameR }) => {
+        const params = usernameR ? { usernameR }: {};
         return Reservation.find(params).sort({ createdAt: -1 })
       }
 
     },
 
     Mutation:{
-      addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password });
-        //const token = signToken(user);
-        //return { token, user };
-        return { user };
-      },
-      login: async (parent, { email, password }) => {
-        const user = await User.findOne({ email });
-  
-        if (!user) {
-          throw new AuthenticationError('No user found with this email address');
-        }
-  
-        const correctPw = await user.isCorrectPassword(password);
-  
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect credentials');
-        }
-  
+      addUser: async (parent, { email, password }) => {
+        const user = await User.create({ email, password });
         const token = signToken(user);
-  
         return { token, user };
-      },
+        
+          
+        }
+      ,
+
+      
+       addReservation: async (parent, { usernameR, phoneNumber, groupSize, reservationTime, comments }) => {
+      const reservation = await Reservation.create({ usernameR, phoneNumber, groupSize, reservationTime, comments});
+        
+      //   // const token = signToken(user);
+      //   // return { token, reservation };
+      console.log (reservation._id)
+       return reservation
+       const resId = reservation.id
+       },
+
+       
+
+       addReservationToUser: async(parent, {useId, resId }, context) => {
+        console.log("res id", resId)
+    
+        console.log("useId",useId)
+       
+        if (context){
+          
+          const updatedUser = await User.findOneAndUpdate(
+            {_id:useId},
+            {
+              $addToSet : {reservations: resId}
+            },
+            {
+              new: true,
+              runValidators:true
+            }
+          ).populate('reservations');
+          return updatedUser
+        }
+
+       },
+      
+      login: async(parent, { email, password}) => {
+        const user = await User.findOne({email});
+
+        if(!user){
+            throw new AuthenticationError(`No user with this email found!`)
+        }
+
+        const correctPw = await user.isCorrectPassword(password);
+
+        if (!correctPw){
+            throw new AuthenticationError(`Incorrect password`);
+        }
+        
+        const token =signToken(user);
+        console.log("tokena dn user", token, user)
+        return { token, user};
+    },
     }
 
 }

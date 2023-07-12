@@ -1,57 +1,66 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ME= gql`
-query me {
-    me{
-        _id
-        username
-        email
-        reservations
-        password
+query me{
+me {
+    _id
+    email
+    reservations {
+      reservationTime
+      groupSize
     }
-
+  }
 }`
 
 export const QUERY_USER=gql`
-query user($_id: ID!) {
-    user{
-        email
-        reservations
+query User($email: String!) {
+    user(email: $email) {
+      reservations {
+        reservationTime
+        phoneNumber
+        groupSize
+        comments
+        usernameR
+        _id
+      }
     }
-
-}
+  }
 `
+
+// export const QUERY_ADMIN = gql`
+// query admin{
+//     admin {
+//       _id
+//       adminName
+//       email
+//     }
+//   }`
 
 
 
 export const QUERY_RESERVATIONS = gql`
-query reservations{
-    reservation{
-        username
-        reservationTime
-        groupSize
-        comments
-
+query reservations {
+    reservations {
+      usernameR
+      reservationTime
+      phoneNumber
+      groupSize
+      comments
     }
+  }
 
-}
 
 
-}
 `
 
 export const QUERY_RESERVATION = gql`
-query reservation($_id: ID!){
-    reservation{
-        username
-        reservationTime
-        groupSize
-        comments
-
+query Reservation($id: ID!) {
+    reservation(_id: $id) {
+      reservationTime
+      phoneNumber
+      usernameR
+      groupSize
+      comments
     }
-
-}
-
-
-}
+  }
 `

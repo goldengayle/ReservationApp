@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { Admin, Reservation, User } = require('../models');
+const { Admin, Reservation, User } = require('../models/index');
 const adminSeeds = require('./adminSeeds.json');
 const reservationSeeds = require('./reservationSeeds.json');
 const userSeeds = require('./userSeeds.json');
