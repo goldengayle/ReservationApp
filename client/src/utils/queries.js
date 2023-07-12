@@ -45,6 +45,7 @@ query reservations {
       reservationTime
       phoneNumber
       groupSize
+      comments
     }
   }
 
