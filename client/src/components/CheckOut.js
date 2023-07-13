@@ -79,7 +79,7 @@ const CheckOut = () => {
           }}/> $25
           
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" /><br></br>
         <button onClick={returnToProfile}> return to profile</button>
     </form>
 
