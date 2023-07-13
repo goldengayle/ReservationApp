@@ -4,81 +4,178 @@
 
 ## Table of Contents:
 - [Description](#Description)
-- [The Challenge](#The-Challenge)
+- [User Story](#User-Story)
+- [Project Requirements](#Project-Requirements)
+- [Acceptance Criteria](#Acceptance-Criteria)
 - [Usage](#Usage)
 - [Installation](#Installation)
 - [Built With](#Built-With)
-- [What I Learned](#What-I-Learned)
+- [What We Learned](#What-We-Learned)
 - [Continued Development](#Continued-Development)
 - [License](#License)
 - [Author](#Author)
 
 ## Description
-
-
-## The Challenge
-The main objective of this project is to create a single-page application portfolio for a web developer, showcasing their experience and proficiency in building React applications.
-
-1. Create a dynamic and user-friendly interface.
-2. Implement smooth navigation between different sections of the portfolio.
-3. Include a contact form with validation and error notifications.
-4. Integrate links to the developer's resume and social media profiles.
+This is a full stack application that allows users to make reservations at a restaurant. The user can also make a deposit on their meal. The owner can update the menu of the restaurant with a simple jpeg image each week. The owner can also highlight images of the restaurants food to attract customers. The owner can see a table with all current reservations.
 
 ## Assigned User Story:
 ```
-AS AN employer looking for candidates with experience building single-page applications
-I WANT to view a potential employee's deployed React portfolio of work samples
-SO THAT I can assess whether they're a good candidate for an open position
+AS A USER I want to make a reservation for the restaurant 
+AS A USER I want to put a deposit on my meal for the restaurant
+AS A USER I want to receive confirmation for my deposit and restaurant table with an email.
+AS A USER I want to be able to sign in to my account to see my reservation.
+AS AN OWNER I want to update the menu of my restaurant with a simple jpeg image each week. 
+AS AN OWNER I want to highlight images of the restaurants food to attract customers
+AS AN OWNER I want to see a table with all current reservations.
 ```
+
+## Project Requirements
+
+Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. This project will provide you with the best opportunity to demonstrate your problem-solving skills, which employers will want to see during interviews. Once again, the user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
+
+* Use React for the front end.
+
+* Use GraphQL with a Node.js and Express.js server.
+
+* Use MongoDB and the Mongoose ODM for the database.
+
+* Use queries and mutations for retrieving, adding, updating, and deleting data.
+
+* Be deployed using Heroku (with data).
+
+* Have a polished UI.
+
+* Be responsive.
+
+* Be interactive (i.e., accept and respond to user input).
+
+* Include authentication (JWT).
+
+* Protect sensitive API key information on the server.
+
+* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
+
+* Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
+### CSS Styling
+
+Instead of using a CSS library like Bootstrap, consider one of the following suggestions:
+
+* Look into the concept of CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include [styled-components](https://styled-components.com/) and [Emotion](https://emotion.sh/docs/introduction).
+
+* Try using a component library, such as [Semantic UI](https://semantic-ui.com/), [Chakra UI](https://chakra-ui.com/), or [Ant Design](https://ant.design/).
+
+* Create all the CSS for your application just using CSS.
+
+Ultimately, it doesn't matter which of these options you choose&mdash;it just needs to look professional and be mobile-friendly.
+
+### Payment Platform
+
+Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
+
+### Bonus
+
+Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
+
+* Uses a web manifest
+
+* Uses a service worker for offline functionality
+
+* Is installable
 
 ## Acceptance Criteria
 
-```md
-GIVEN a single-page application portfolio for a web developer
-WHEN I load the portfolio
-THEN I am presented with a page containing a header, a section for content, and a footer
-WHEN I view the header
-THEN I am presented with the developer's name and navigation with titles corresponding to different sections of the portfolio
-WHEN I view the navigation titles
-THEN I am presented with the titles About Me, Portfolio, Contact, and Resume, and the title corresponding to the current section is highlighted
-WHEN I click on a navigation title
-THEN I am presented with the corresponding section below the navigation without the page reloading and that title is highlighted
-WHEN I load the portfolio the first time
-THEN the About Me title and section are selected by default
-WHEN I am presented with the About Me section
-THEN I see a recent photo or avatar of the developer and a short bio about them
-WHEN I am presented with the Portfolio section
-THEN I see titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repositories
-WHEN I am presented with the Contact section
-THEN I see a contact form with fields for a name, an email address, and a message
-WHEN I move my cursor out of one of the form fields without entering text
-THEN I receive a notification that this field is required
-WHEN I enter text into the email address field
-THEN I receive a notification if I have entered an invalid email address
-WHEN I am presented with the Resume section
-THEN I see a link to a downloadable resume and a list of the developer’s proficiencies
-WHEN I view the footer
-THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
-```
+This project is graded based on the following criteria:
+
+### Technical Acceptance Criteria: 25%
+
+* Satisfies the following code requirements:
+
+  * Application uses React for the front end.
+
+  * Application has a GraphQL API with a Node.js and Express.js server, and uses queries and mutations for retrieving, adding, updating, and deleting data.
+
+  * Application uses MongoDB and the Mongoose ODM for the database and protects sensitive API key information on the server.
+
+  * Application includes user authentication using JWT.
+
+### Concept 10%
+
+* Application should be a unique and novel idea.
+
+* Your group should clearly and concisely articulate your project idea.
+
+### Deployment: 20%
+
+* Application deployed at live URL on Heroku and loads with no errors.
+
+* Application GitHub URL submitted.
+
+### Repository Quality: 10%
+
+* Repository has a unique name.
+
+* Repository follows best practices for file structure and naming conventions.
+
+* Repository follows best practices for class and id naming conventions, indentation, quality comments, etc.
+
+* Repository contains multiple descriptive commit messages.
+
+* Repository contains a high-quality README file with description, screenshot, and link to deployed application.
+
+### Application Quality: 15%
+
+* Application user experience is intuitive and easy to navigate.
+
+* Application user interface style is clean and polished.
+
+* Application is responsive.
+
+### Presentation 10%
+
+* Your group should present using a slide deck.
+
+* Every group member should speak during the presentation.
+
+* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
+
+### Collaboration 10%
+
+* There are no major disparities in the number of GitHub contributions between group members.
+
+### Bonus
+
+Fulfilling all three of the following requirements to turn your app into a PWA will add 10 points to your grade. Note that the highest grade you can achieve is still a 100:
+
+* Uses a web manifest
+
+* Uses a service worker for offline functionality
+
+* Is installable
+
+## How to Submit Your MERN Stack Single-Page Application
+
+**Each member of your group** is required to submit the following for review:
+
+* The URL of the deployed application.
+
+* The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ## Usage:
 1. Navigate to the deployed application link.
-2. Click on the navigation titles to switch between sections.
-3. View the developer's work samples in the Portfolio section.
-4. Fill out the contact form in the Contact section.
-5. Download the developer's resume in the Resume section.
+
 
 ## Deployed GitHub-Pages Application Link
-[Deployed GitHub-Pages Application Link](https://kaitlynatif.github.io/React_Portfolio/)
+[Deployed GitHub-Pages Application Link]()
 
 ## GitHub Repository
-[GitHub Repository](https://github.com/kaitlynatif/React_Portfolio)
+[GitHub Repository]()
 
-## React Portfolio Screenshots:
+## Screenshots:
 
 ### Figure 1. Deployed Application Screenshot.
-![](./src/images/ReactPortfolio.png)
-![](./src/images/ReactPortfolio2.png)
+![]()
+![]()
 
 ## Installation:
 1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
@@ -94,7 +191,6 @@ THEN I am presented with text or icon links to the developer’s GitHub and Link
 - Node.js: [16.18.1](https://nodejs.org/en/blog/release/v16.18.1/)
 - MongoDB: [Website](https://www.mongodb.com/)
 - Nodemon: [2.0.12](https://www.npmjs.com/package/nodemon/v/2.0.12)
-- Fontawesome: [6.4.0](https://www.npmjs.com/package/@fortawesome/)
 - dotenv: [16.0.3](https://www.npmjs.com/package/dotenv)
 - Express: [4.18.2](https://www.npmjs.com/package/express)
 - GraphQL: [16.6.0](https://www.npmjs.com/package/graphql)
@@ -112,23 +208,17 @@ THEN I am presented with text or icon links to the developer’s GitHub and Link
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 
-## What I Learned:
-1. Building a single-page application using React.
-2. Implementing smooth navigation using React Router.
-3. Creating a responsive and visually appealing interface.
-4. Integrating form validation and error handling in React applications.
+## What We Learned:
+1. 
 
-### Continued Development:
-1. Add a blog section to showcase the developer's thoughts and experiences.
-2. Implement a search functionality for easier navigation through work samples.
-3. Incorporate testimonials from previous clients or employers.
-4. Integrate a dark mode toggle for better accessibility and user experience.
+## Continued Development:
+1. 
 
 ## License
   
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [Open Source Initiative Link](https://opensource.org/licenses/MIT)
 
-### Copyright © 2023 [Kaitlyn Atif](https://github.com/kaitlynatif)
+### Copyright © 2023 Kaitlyn Atif, Gayle Lennox, Ricky Tolefree Jr., Adam Loppe
 ```md
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -151,6 +241,11 @@ SOFTWARE.
 
 ## Author
 
-Follow me on Github at [Kaitlyn Atif](https://github.com/kaitlynatif). Additional questions or concerns? Please contact me at kaitlynatif90@hotmail.com.
+Follow us on Github at:
+- [Kaitlyn Atif](https://github.com/kaitlynatif).
+- [Gayle Lennox](https://github.com/goldengayle).
+- [Ricky Tolefree Jr.](https://github.com/rtolefree1).
+- [Adam Loppe](https://github.com/shamanking176).
+- Additional questions or concerns? Please contact me at kaitlynatif90@hotmail.com.
 
-© 2023 [Kaitlyn Atif](https://github.com/kaitlynatif). Confidential and Proprietary. All Rights Reserved.
+© 2023 Confidential and Proprietary. All Rights Reserved.
