@@ -103,15 +103,6 @@ function Navigation({ currentPage, handlePageChange }) {
         </li>
         <li className="nav-item">
           <a
-            href="#reserve"
-            onClick={() => handlePageChange('reserve')}
-            className={currentPage === 'reserve' ? 'nav-link active' : 'nav-link'}
-          >
-            Make a Reservation
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
             href="#admin"
             onClick={() => handlePageChange('admin')}
             className={currentPage === 'admin' ? 'nav-link active' : 'nav-link'}
@@ -119,6 +110,16 @@ function Navigation({ currentPage, handlePageChange }) {
             Admin Page
           </a>
         </li>
+        <li className="nav-item">
+          <a
+            href="#reserve"
+            onClick={() => handlePageChange('reserve')}
+            className={currentPage === 'reserve' ? 'nav-link active' : 'nav-link'}
+          >
+            Make a Reservation
+          </a>
+        </li>
+        
         <li className="nav-item">
           <a
             href="#logout"
@@ -162,6 +163,15 @@ function Navigation({ currentPage, handlePageChange }) {
           Signup
         </a>
       </li>
+      <li className="nav-item">
+          <a
+            href="#admin"
+            onClick={() => handlePageChange('admin')}
+            className={currentPage === 'admin' ? 'nav-link active' : 'nav-link'}
+          >
+            Admin Page
+          </a>
+        </li>
       <li className="nav-item">
         <a
           href="#menu"
