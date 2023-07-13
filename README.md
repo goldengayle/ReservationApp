@@ -1,70 +1,156 @@
-# Getting Started with Create React App
+# React Restaurant Reservation App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
+## Table of Contents:
+- [Description](#Description)
+- [The Challenge](#The-Challenge)
+- [Usage](#Usage)
+- [Installation](#Installation)
+- [Built With](#Built-With)
+- [What I Learned](#What-I-Learned)
+- [Continued Development](#Continued-Development)
+- [License](#License)
+- [Author](#Author)
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## The Challenge
+The main objective of this project is to create a single-page application portfolio for a web developer, showcasing their experience and proficiency in building React applications.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Create a dynamic and user-friendly interface.
+2. Implement smooth navigation between different sections of the portfolio.
+3. Include a contact form with validation and error notifications.
+4. Integrate links to the developer's resume and social media profiles.
 
-### `npm test`
+## Assigned User Story:
+```
+AS AN employer looking for candidates with experience building single-page applications
+I WANT to view a potential employee's deployed React portfolio of work samples
+SO THAT I can assess whether they're a good candidate for an open position
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Acceptance Criteria
 
-### `npm run build`
+```md
+GIVEN a single-page application portfolio for a web developer
+WHEN I load the portfolio
+THEN I am presented with a page containing a header, a section for content, and a footer
+WHEN I view the header
+THEN I am presented with the developer's name and navigation with titles corresponding to different sections of the portfolio
+WHEN I view the navigation titles
+THEN I am presented with the titles About Me, Portfolio, Contact, and Resume, and the title corresponding to the current section is highlighted
+WHEN I click on a navigation title
+THEN I am presented with the corresponding section below the navigation without the page reloading and that title is highlighted
+WHEN I load the portfolio the first time
+THEN the About Me title and section are selected by default
+WHEN I am presented with the About Me section
+THEN I see a recent photo or avatar of the developer and a short bio about them
+WHEN I am presented with the Portfolio section
+THEN I see titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repositories
+WHEN I am presented with the Contact section
+THEN I see a contact form with fields for a name, an email address, and a message
+WHEN I move my cursor out of one of the form fields without entering text
+THEN I receive a notification that this field is required
+WHEN I enter text into the email address field
+THEN I receive a notification if I have entered an invalid email address
+WHEN I am presented with the Resume section
+THEN I see a link to a downloadable resume and a list of the developer’s proficiencies
+WHEN I view the footer
+THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage:
+1. Navigate to the deployed application link.
+2. Click on the navigation titles to switch between sections.
+3. View the developer's work samples in the Portfolio section.
+4. Fill out the contact form in the Contact section.
+5. Download the developer's resume in the Resume section.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployed GitHub-Pages Application Link
+[Deployed GitHub-Pages Application Link](https://kaitlynatif.github.io/React_Portfolio/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## GitHub Repository
+[GitHub Repository](https://github.com/kaitlynatif/React_Portfolio)
 
-### `npm run eject`
+## React Portfolio Screenshots:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Figure 1. Deployed Application Screenshot.
+![](./src/images/ReactPortfolio.png)
+![](./src/images/ReactPortfolio2.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation:
+1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
+2. Open the cloned (or downloaded) repository in any source code editor.
+3. Open the integrated terminal of the document and complete the respective installation guides provided in "Built With" to ensure the cloned documentation will operate.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Built With:
+- Dynamic JavaScript
+- How To Create React.md: [Click to Preview Document](./src/documentation/HowToCreateReact.md)
+- JSON: [JSON](https://www.npmjs.com/package/json)
+- Mongoose: [7.0.3](https://www.npmjs.com/package/mongoose)
+- Express: [4.18.2](https://www.npmjs.com/package/express)
+- Node.js: [16.18.1](https://nodejs.org/en/blog/release/v16.18.1/)
+- MongoDB: [Website](https://www.mongodb.com/)
+- Nodemon: [2.0.12](https://www.npmjs.com/package/nodemon/v/2.0.12)
+- Fontawesome: [6.4.0](https://www.npmjs.com/package/@fortawesome/)
+- dotenv: [16.0.3](https://www.npmjs.com/package/dotenv)
+- Express: [4.18.2](https://www.npmjs.com/package/express)
+- GraphQL: [16.6.0](https://www.npmjs.com/package/graphql)
+- JsonWebToken: [9.0.0](https://www.npmjs.com/package/jsonwebtoken)
+- Mongodb: [5.1.0](https://www.npmjs.com/package/mongodb)
+- Mongoose: [7.0.3](https://www.npmjs.com/package/mongoose)
+- React: [18.2.0](https://www.npmjs.com/package/react)
+- React-Dom: [18.2.0](https://www.npmjs.com/package/react-dom)
+- React: [18.2.0](https://reactjs.org)
+- GraphQL: [16.6.0](https://graphql.org)
+- MongoDB: [5.1.0](https://www.mongodb.com)
+- Mongoose ODM: [7.0.3](https://mongoosejs.com)
+- JWT: [9.0.0](https://jwt.io)
+- Heroku: [Website](https://www.heroku.com/platform)
+- License Badge: [Shields.io](https://shields.io/)
+- Visual Studio Code: [Website](https://code.visualstudio.com/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## What I Learned:
+1. Building a single-page application using React.
+2. Implementing smooth navigation using React Router.
+3. Creating a responsive and visually appealing interface.
+4. Integrating form validation and error handling in React applications.
 
-## Learn More
+### Continued Development:
+1. Add a blog section to showcase the developer's thoughts and experiences.
+2. Implement a search functionality for easier navigation through work samples.
+3. Incorporate testimonials from previous clients or employers.
+4. Integrate a dark mode toggle for better accessibility and user experience.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
+  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [Open Source Initiative Link](https://opensource.org/licenses/MIT)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Copyright © 2023 [Kaitlyn Atif](https://github.com/kaitlynatif)
+```md
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Code Splitting
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
-### Analyzing the Bundle Size
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Follow me on Github at [Kaitlyn Atif](https://github.com/kaitlynatif). Additional questions or concerns? Please contact me at kaitlynatif90@hotmail.com.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2023 [Kaitlyn Atif](https://github.com/kaitlynatif). Confidential and Proprietary. All Rights Reserved.
