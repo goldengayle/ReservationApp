@@ -73,7 +73,7 @@ aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" alt="D
           </svg>
           <div class="container">
             <div class="carousel-caption text-end">
-              <h1>Example headline.</h1>
+              
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" alt="D
           </svg>
           <div class="container">
             <div class="carousel-caption text-start">
-              <h1>Another example headline.</h1>
+              
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" alt="D
           </svg>
           <div class="container">
             <div class="carousel-caption text-end">
-              <h1>Another example headline.</h1>
+              
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" alt="D
           </svg>
           <div class="container">
             <div class="carousel-caption text-start">
-              <h1>One more for good measure.</h1>
+              
             </div>
           </div>
         </div>

@@ -86,8 +86,8 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            class="btn text-dark"
-            style={{ backgroundColor: "#e6ccb3" }}
+            class="btn text-light"
+            style={{ backgroundColor: "#36454F" }}
           >
             Signup
           </button>

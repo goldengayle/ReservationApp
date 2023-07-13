@@ -65,7 +65,7 @@ const Admin =() =>{
     return (
         <div>
           <main className="container mt-5">
-            <h1 className="mb-4">Login</h1>
+            <h1 className="mb-4">Admin Login</h1>
             <form className="login-form" onSubmit={handleLogin}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
@@ -91,10 +91,10 @@ const Admin =() =>{
               </div>
               <button
                 type="submit"
-                className="btn text-dark"
-                style={{ backgroundColor: "#e6ccb3" }}
+                className="btn text-light"
+                style={{ backgroundColor: "#36454F" }}
               >
-                Log In
+               Log In
               </button>
             </form>
           </main>

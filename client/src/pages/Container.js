@@ -14,10 +14,14 @@ import UserProfile from "./profile"
 
 export default function Container() {
   const loggedin = localStorage.getItem("loggedIn")
-  const [currentPage, setCurrentPage] = useState( loggedin ? "profile": "about");
+  const mustPay =localStorage.getItem("mustpay")
+  const [currentPage, setCurrentPage] = useState( loggedin ?  "profile" : "about");
+
+  // if (mustPay) {setCurrentPage('Checkout')}
  
 
   const renderPage = () => {
+     
     if (currentPage === "about") {
       return <About />;
     }
@@ -66,11 +70,8 @@ export default function Container() {
 
       <main className="container">{renderPage()}</main>
 
-      <footer className="footer bg-dark text-white">
+      <footer className="footer text-white">
         <div className="footer-container">
-          <p className="float-end">
-            <a href="./client/public/index.html">Back to top</a>
-          </p>
           <h6 className="copyright-text">Salt Your Food Reservation App, Inc. &copy; {new Date().getFullYear()} All rights reserved.</h6>
         </div>
       </footer>

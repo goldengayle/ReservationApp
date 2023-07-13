@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <header data-bs-theme="dark">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
           <div class="container-fluid">
             <form class="d-flex" role="search">
               <input
