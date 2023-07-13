@@ -47,7 +47,8 @@ input ReservationInput {
     admin: [Admin]
     reservations: [Reservation]
     reservation(_id: ID!):Reservation
-    me: User
+    me(userId:ID!): User
+    
   }
 
   type Mutation {

@@ -1,12 +1,13 @@
-import React, { useState, useRef } from 'react';
-import { validateEmail } from '../utils/helpers';
+import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation, useQuery } from "@apollo/client"
 import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
 import {QUERY_ME} from '../utils/queries'
 
-import Auth from '../utils/auth'
+// import Auth from '../utils/auth'
 
 
 export default function Reserve() {
@@ -61,8 +62,9 @@ export default function Reserve() {
     
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
-    const {me} = useQuery(QUERY_ME)
+    // const {me} = useQuery(QUERY_ME)
     const useId = localStorage.getItem("useId");
+    
      
 
     const addRes = async(useId, resId)=> {
@@ -98,6 +100,10 @@ export default function Reserve() {
              console.log("reservation ID", resId)
              console.log("user Id", useId)
              addRes(useId, resId)
+             localStorage.setItem("mustpay", true)
+             window.location.reload();
+            
+             
             
             
 
@@ -128,36 +134,44 @@ export default function Reserve() {
    
     return (
         <div>
-            <h3> Please let us know when you would like to reserve a table</h3>
-            < form align= "center" className ="form" >
-                <label>Reservation Name</label>
+            <main className="container mt-5">
+            <h3 className="mb-4"> Please let us know when you would like to reserve a table</h3>
+            <form className ="form">
+                <div className="mb-3">
+                <label htmlFor="name" className="form-label">Reservation Name</label>
                 <input 
 
                     value ={reservationForm.usernameR}
                     name= "usernameR"
                     onChange ={handleInputChange}
                     type ="text"
+                    className="form-control"
                     placeholder = "Reservation Name"
                 />
-                <br></br>
-                <label>Phone Number</label>
+                </div>
+                <div className="mb-3">
+                <label htmlFor="number" className="form-label">Phone Number</label>
                 <input  
                     value ={reservationForm.phoneNumber}
                     name="phoneNumber"
                     onChange ={handleInputChange}
                     type = "phoneNumber"
+                    className="form-control"
                     placeholder = "Phone Number"
                 />
-                <br></br>
-                <label>Group Size</label>
+                </div>
+                <div className="mb-3">
+                <label htmlFor="size" className="form-label">Group Size</label>
                 <input  
                     value ={reservationForm.groupSize}
                     name = "groupSize"
                     onChange = {handleInputChange}
                     type ="text"
+                    className="form-control"
                     placeholder ="2"
                 />
-                <br></br>
+                </div>
+                
                 {/* <ReactDatepicker
                     selected={reservationForm.reservationTime}
                     name="reservationTime"
@@ -168,11 +182,12 @@ export default function Reserve() {
                     dateFormat="MMMM d, yyyy h:mm aa"
                     
                 />  */}
-                <br></br>
-                <label>Reservation Time</label>
+                <div className="mb-3">
+                <label htmlFor="time" className="form-label">Reservation Time</label>
                 <ReactDatepicker
                     selected={reservationForm.reservationTime}
                     name="reservationTime"
+                    className="form-control"
                     // onChange={handleInputChange}
                     showTimeSelect
                     maxTime= {new Date().setHours(22, 0, 0, 0)}
@@ -182,6 +197,7 @@ export default function Reserve() {
                     onChange={date => handleInputChange({ target: { value: date, name: 'reservationTime' } })}
                     
                 />
+                </div>
                 {/* <input  
                     value ={reservationForm.reservationTime}
                     name = "reservationTime"
@@ -189,15 +205,17 @@ export default function Reserve() {
                     type ="text"
                     placeholder ="Please enter date and time"
                 /> */}
-                <br></br>
-                <label>Comments</label>
+                <div className="mb-3">
+                <label htmlFor="comments" className="form-label">Comments</label>
                 <input  
                     value ={reservationForm.comments}
                     name = "comments"
                     onChange = {handleInputChange}
                     type ="text"
+                    className="form-control"
                     placeholder ="Let us know if there are any special requests"
                 />
+                </div>
                 {/* <select
                     value ={selectedTime}
                     onChange={(e) => setSelectedTime(e.target.value)}
@@ -212,11 +230,12 @@ export default function Reserve() {
                 value={selectedTime}
                 onChange={(e) => setSelectedTime(e.target.value)}
                 /> */}
-                <br></br>
-                <button onClick={handleFormSubmit}>Submit</button>
+                
+                <button type="submit" className="btn text-light" style={{ backgroundColor: "#36454F"}} onClick={handleFormSubmit}>Submit</button>
 
 
             </form>
+            </main>
     
         </div>
     )
