@@ -37,6 +37,11 @@ const Signup = () => {
         variables: {...signUpForm}
       })
       console.log("signup info", data)
+      console.log(data.addUser.user._id)
+      const useId = data.addUser.user._id
+      localStorage.setItem("useId", useId);
+      
+      
 
     }catch(e){
       console.log(e)

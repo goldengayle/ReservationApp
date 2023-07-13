@@ -2,7 +2,7 @@ import React from 'react';
 import {QUERY_RESERVATIONS} from '../utils/queries'
 import { useQuery } from '@apollo/client';
 const Admin =() =>{
-    const isLoggedIn = localStorage.getItem('loggedIn') || false;
+    const isLoggedInAdmin = localStorage.getItem('loggedInAdmin') || false;
     const {loading, data}= useQuery(QUERY_RESERVATIONS) 
     console.log(data)
     // const userData = data?.me || []
@@ -10,18 +10,18 @@ const Admin =() =>{
       event.preventDefault();
       const enteredEmail = document.getElementById("email-login").value;
       const enteredPassword = document.getElementById("password-login").value;
-      const storedEmail = "admin17";
+      const storedEmail = "admin17@gmail.com";
       const storedPassword = "password17";
       
      
       
       // Retrieve the entered email and password from the form
       
-      localStorage.setItem("loggedIn", true);
+      localStorage.setItem("loggedInAdmin", true);
       // Compare the entered email and password with the stored values
       if(enteredEmail === storedEmail && enteredPassword === storedPassword) {
         // Perform login actions or redirect to the authenticated page
-        localStorage.setItem("loggedIn", true);
+       
         console.log("Login successful!");
         window.location.reload();
       } else {
@@ -29,7 +29,7 @@ const Admin =() =>{
       }
     };
     
-    if (isLoggedIn) {
+    if (isLoggedInAdmin) {
       const reservations = data?.reservations || [];
   
       return (

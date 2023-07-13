@@ -1,12 +1,13 @@
-import React, { useState, useRef } from 'react';
-import { validateEmail } from '../utils/helpers';
+import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import { validateEmail } from '../utils/helpers';
 import ReactDatepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation, useQuery } from "@apollo/client"
 import { ADD_RESERVATION, ADD_RESTOUSER } from '../utils/mutations';
 import {QUERY_ME} from '../utils/queries'
 
-import Auth from '../utils/auth'
+// import Auth from '../utils/auth'
 
 
 export default function Reserve() {
@@ -61,8 +62,9 @@ export default function Reserve() {
     
     const [addReservation]= useMutation(ADD_RESERVATION)
     const [addReservationToUser, {data }] = useMutation(ADD_RESTOUSER)
-    const {me} = useQuery(QUERY_ME)
+    // const {me} = useQuery(QUERY_ME)
     const useId = localStorage.getItem("useId");
+    
      
 
     const addRes = async(useId, resId)=> {
@@ -98,6 +100,9 @@ export default function Reserve() {
              console.log("reservation ID", resId)
              console.log("user Id", useId)
              addRes(useId, resId)
+             window.location.reload();
+            
+             
             
             
 
