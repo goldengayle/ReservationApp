@@ -18,7 +18,7 @@
 ## Description
 This is a full stack application that allows users to make reservations at a restaurant. The user can also make a deposit on their meal. The owner can update the menu of the restaurant with a simple jpeg image each week. The owner can also highlight images of the restaurants food to attract customers. The owner can see a table with all current reservations.
 
-## Assigned User Story:
+## User Story:
 ```
 AS A USER I want to make a reservation for the restaurant 
 AS A USER I want to put a deposit on my meal for the restaurant
@@ -161,6 +161,11 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
+## Installation:
+1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
+2. Open the cloned (or downloaded) repository in any source code editor.
+3. Open the integrated terminal of the document and complete the respective installation guides provided in "Built With" to ensure the cloned documentation will operate.
+
 ## Usage:
 1. Navigate to the deployed application link.
 
@@ -169,18 +174,13 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 [Deployed GitHub-Pages Application Link]()
 
 ## GitHub Repository
-[GitHub Repository]()
+[GitHub Repository](https://github.com/goldengayle/ReservationApp)
 
 ## Screenshots:
 
 ### Figure 1. Deployed Application Screenshot.
 ![]()
 ![]()
-
-## Installation:
-1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
-2. Open the cloned (or downloaded) repository in any source code editor.
-3. Open the integrated terminal of the document and complete the respective installation guides provided in "Built With" to ensure the cloned documentation will operate.
 
 ## Built With:
 - Dynamic JavaScript
@@ -239,13 +239,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Author
+## Authors:
 
 Follow us on Github at:
 - [Kaitlyn Atif](https://github.com/kaitlynatif).
 - [Gayle Lennox](https://github.com/goldengayle).
 - [Ricky Tolefree Jr.](https://github.com/rtolefree1).
 - [Adam Loppe](https://github.com/shamanking176).
-- Additional questions or concerns? Please contact me at kaitlynatif90@hotmail.com.
 
 © 2023 Confidential and Proprietary. All Rights Reserved.
