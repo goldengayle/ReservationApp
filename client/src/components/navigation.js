@@ -4,6 +4,7 @@ import Auth from '../utils/auth';
 function Navigation({ currentPage, handlePageChange }) {
   const isLoggedIn = localStorage.getItem('loggedIn') || false; 
   const isLoggedInAdmin = localStorage.getItem('loggedInAdmin') || false;
+  const mustPay = localStorage.getItem('mustpay')|| false
   const handleLogout = () => {
     // Perform logout actions here (e.g., clear authentication tokens, reset state, etc.)
     localStorage.removeItem('loggedIn');
@@ -70,6 +71,12 @@ function Navigation({ currentPage, handlePageChange }) {
             Logout
           </a>
         </li>
+        {/* <li className="nav-item">
+                <a href ="#PayPal" onClick={() => handlePageChange('PayPal')} className={currentPage === 'PayPal' ? 'nav-link active' : 'nav-link'}>PayPal</a>
+            </li> */}
+            <li className="nav-item">
+                <a href ="#CheckOut" onClick={() => handlePageChange('CheckOut')} className={currentPage === 'CheckOut' ? 'nav-link active' : 'nav-link'}>CheckOut</a>
+            </li>
       </ul>
     );
   }
@@ -121,12 +128,7 @@ function Navigation({ currentPage, handlePageChange }) {
             Logout
           </a>
         </li>
-        <li className="nav-item">
-                <a href ="#PayPal" onClick={() => handlePageChange('PayPal')} className={currentPage === 'PayPal' ? 'nav-link active' : 'nav-link'}>PayPal</a>
-            </li>
-            <li className="nav-item">
-                <a href ="#CheckOut" onClick={() => handlePageChange('CheckOut')} className={currentPage === 'CheckOut' ? 'nav-link active' : 'nav-link'}>CheckOut</a>
-            </li>
+        
       </ul>
     );
   }
@@ -169,7 +171,7 @@ function Navigation({ currentPage, handlePageChange }) {
           Current Menu
         </a>
       </li>
-      <li className="nav-item">
+      {/* <li className="nav-item">
         <a
           href="#reserve"
           onClick={() => handlePageChange('reserve')}
@@ -177,16 +179,7 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           Make a Reservation
         </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#admin"
-          onClick={() => handlePageChange('admin')}
-          className={currentPage === 'admin' ? 'nav-link active' : 'nav-link'}
-        >
-          Admin Page
-        </a>
-      </li>
+      </li> */}
     </ul>
   );
 }

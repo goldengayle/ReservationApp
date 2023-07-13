@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
  // import PayPalButton from './PaypalButton';
  import { PayPalButton } from 'react-paypal-button-v2';
- import PayPalButtonComponent from "../components/PaypalButton";
+ import PayPalButtonComponent from "./PaypalButton";
 
 const CheckOut = () => {
   //... your other code here
@@ -20,6 +20,11 @@ const CheckOut = () => {
     });
   };
 
+  const returnToProfile =(e) => {
+    localStorage.setItem("mustpay", false)
+    window.location.reload()
+
+  }
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -71,11 +76,14 @@ const CheckOut = () => {
           onSucess={successPaymentHandler}
           options={{
             clientId: 'ATmg78ssJxFLlAEX8JmTbfGWrNA6DUlxgCGcdmonxAXwiZEV5U-Ii-mzgkKyVLloYutP7c8cQrt0YneP',
-          }}/> 25
-          {/* put actual total here */}
+          }}/> $25
+          
         </label>
         <input type="submit" value="Submit" />
+        <button onClick={returnToProfile}> return to profile</button>
     </form>
+
+    
     
     // <div>
      

@@ -14,10 +14,14 @@ import UserProfile from "./profile"
 
 export default function Container() {
   const loggedin = localStorage.getItem("loggedIn")
-  const [currentPage, setCurrentPage] = useState( loggedin ? "profile": "about");
+  const mustPay =localStorage.getItem("mustpay")
+  const [currentPage, setCurrentPage] = useState( loggedin ?  "profile" : "about");
+
+  // if (mustPay) {setCurrentPage('Checkout')}
  
 
   const renderPage = () => {
+     
     if (currentPage === "about") {
       return <About />;
     }
