@@ -100,6 +100,7 @@ export default function Reserve() {
              console.log("reservation ID", resId)
              console.log("user Id", useId)
              addRes(useId, resId)
+             localStorage.setItem("mustpay", true)
              window.location.reload();
             
              

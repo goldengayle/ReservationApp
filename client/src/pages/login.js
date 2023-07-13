@@ -9,6 +9,7 @@ const Login = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const isLoggedIn = localStorage.getItem('loggedIn') || false; 
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -28,6 +29,7 @@ const Login = () => {
     const enteredEmail = document.getElementById("email-login").value;
     const enteredPassword = document.getElementById("password-login").value;
     localStorage.setItem("loggedIn", true);
+    localStorage.setItem('mustpay', false)
     // Compare the entered email and password with the stored values
     // if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
     //   // Perform login actions or redirect to the authenticated page
