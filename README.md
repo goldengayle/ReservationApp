@@ -18,7 +18,7 @@
 ## Description
 This is a full stack application that allows users to make reservations at a restaurant. The user can also make a deposit on their meal. The owner can update the menu of the restaurant with a simple jpeg image each week. The owner can also highlight images of the restaurants food to attract customers. The owner can see a table with all current reservations.
 
-## Assigned User Story:
+## User Story:
 ```
 AS A USER I want to make a reservation for the restaurant 
 AS A USER I want to put a deposit on my meal for the restaurant
@@ -161,26 +161,30 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
-## Usage:
-1. Navigate to the deployed application link.
-
-
-## Deployed GitHub-Pages Application Link
-[Deployed GitHub-Pages Application Link]()
-
-## GitHub Repository
-[GitHub Repository]()
-
-## Screenshots:
-
-### Figure 1. Deployed Application Screenshot.
-![]()
-![]()
-
 ## Installation:
 1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
 2. Open the cloned (or downloaded) repository in any source code editor.
 3. Open the integrated terminal of the document and complete the respective installation guides provided in "Built With" to ensure the cloned documentation will operate.
+4. Run the command "npm install" in the integrated terminal to install the required dependencies.
+5. Run the command "npm run seed" in the integrated terminal to seed the database.
+6. Run the command "npm run start" in the integrated terminal to start the application.
+
+## Usage:
+1. Navigate to the deployed application link.
+2. Click on the "Sign Up" button to create an account.
+3. Click on the "Log In" button to log in to your account.
+4. Click on the "Make Reservation" button to make a reservation.
+5. Click on the "Make Deposit" button to make a deposit.
+6. Click on the "View Menu" button to view the menu.
+
+## Deployed Application Link
+[Deployed Application Link]()
+
+## GitHub Repository
+[GitHub Repository](https://www.github.com/goldengayle/ReservationApp)
+
+## Screenshot of Deployed Application
+![Deployed Application Screenshot](./client/src/assets/ReservationApp_screenshot.png)
 
 ## Built With:
 - Dynamic JavaScript
@@ -208,11 +212,15 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 
-## What We Learned:
-1. 
-
 ## Continued Development:
-1. 
+1. Reformat website to handle all MERN functionality. 
+2. Routing and context was done through local storage when it could have been handled easier if we had set up our stack correctly.
+3. Add mobile responsiveness.
+4. Error validation
+5. Fix time-stamp to receive formatted dates and the ability to sort the reservations by date.
+6. Delete buttons on profile page so that a user can cancel a reservation.
+7. Email functionality when reservation is made for confirmation. 
+8. Work with business to see what additional functionality and styling is desired.
 
 ## License
   
@@ -246,6 +254,5 @@ Follow us on Github at:
 - [Gayle Lennox](https://github.com/goldengayle).
 - [Ricky Tolefree Jr.](https://github.com/rtolefree1).
 - [Adam Loppe](https://github.com/shamanking176).
-- Additional questions or concerns? Please contact me at kaitlynatif90@hotmail.com.
 
 © 2023 Confidential and Proprietary. All Rights Reserved.
